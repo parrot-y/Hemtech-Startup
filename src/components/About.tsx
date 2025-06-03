@@ -10,7 +10,7 @@ const About = () => {
           <div className="animate-fade-in">
             <div className="mb-8">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face"
+                src="/lovable-uploads/c5eccfbc-273a-4d6e-adbc-6709cd55c4a4.png"
                 alt="Hemstone Vidonyi - BIZINTEL Founder"
                 className="w-full max-w-md mx-auto lg:mx-0 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105"
               />
