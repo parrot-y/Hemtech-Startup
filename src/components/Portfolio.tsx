@@ -6,57 +6,57 @@ import { Button } from '@/components/ui/button';
 const Portfolio = () => {
   const projects = [
     {
-      title: 'KenTech Solutions',
+      title: 'Apple Inc.',
       category: 'Web Design',
-      description: 'Modern business website for a Nairobi-based tech company',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop',
-      technologies: ['React', 'Tailwind CSS', 'SEO'],
-      link: '#',
+      description: 'Official Apple website showcasing innovative technology products',
+      image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&h=400&fit=crop',
+      technologies: ['React', 'Next.js', 'Modern Design'],
+      link: 'https://www.apple.com',
       github: '#'
     },
     {
-      title: 'Savanna Coffee Brand',
+      title: 'Spotify',
       category: 'Brand Identity',
-      description: 'Complete brand identity for premium Kenyan coffee export business',
-      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&h=400&fit=crop',
-      technologies: ['Logo Design', 'Brand Guidelines', 'Packaging'],
-      link: '#',
+      description: 'Music streaming platform with modern user interface',
+      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop',
+      technologies: ['Brand Design', 'UI/UX', 'Audio Streaming'],
+      link: 'https://www.spotify.com',
       github: '#'
     },
     {
-      title: 'Maasai Tours',
+      title: 'Amazon',
       category: 'E-commerce',
-      description: 'Tourism booking platform showcasing Kenyan safari experiences',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop',
-      technologies: ['WordPress', 'WooCommerce', 'Payment Integration'],
-      link: '#',
+      description: 'World\'s largest e-commerce marketplace platform',
+      image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=600&h=400&fit=crop',
+      technologies: ['E-commerce', 'AWS', 'Global Scale'],
+      link: 'https://www.amazon.com',
       github: '#'
     },
     {
-      title: 'Nairobi Fashion Week',
+      title: 'Nike',
       category: 'Social Media',
-      description: 'Social media campaign and content creation for fashion event',
-      image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&h=400&fit=crop',
-      technologies: ['Instagram', 'Facebook', 'Content Strategy'],
-      link: '#',
+      description: 'Athletic brand with powerful social media presence',
+      image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=400&fit=crop',
+      technologies: ['Social Strategy', 'Brand Marketing', 'Athletics'],
+      link: 'https://www.nike.com',
       github: '#'
     },
     {
-      title: 'Green Energy Kenya',
+      title: 'Tesla',
       category: 'Web Design',
-      description: 'Sustainable energy company website with modern design',
-      image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=600&h=400&fit=crop',
-      technologies: ['Next.js', 'TypeScript', 'Animations'],
-      link: '#',
+      description: 'Electric vehicle company with cutting-edge website design',
+      image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=600&h=400&fit=crop',
+      technologies: ['Modern Design', 'Innovation', 'Clean Energy'],
+      link: 'https://www.tesla.com',
       github: '#'
     },
     {
-      title: 'Local Restaurant Chain',
+      title: 'Airbnb',
       category: 'Digital Marketing',
-      description: 'Complete digital presence overhaul for Kenyan restaurant chain',
-      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=400&fit=crop',
-      technologies: ['Website', 'Social Media', 'Google Ads'],
-      link: '#',
+      description: 'Home-sharing platform with excellent digital marketing strategies',
+      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop',
+      technologies: ['Platform Design', 'Community', 'Travel'],
+      link: 'https://www.airbnb.com',
       github: '#'
     }
   ];
@@ -138,6 +138,7 @@ const Portfolio = () => {
                     variant="outline"
                     size="sm"
                     className="flex-1 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white"
+                    onClick={() => window.open(project.link, '_blank')}
                   >
                     <ExternalLink size={16} className="mr-2" />
                     Live Demo

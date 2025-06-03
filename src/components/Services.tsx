@@ -87,11 +87,16 @@ const Services = () => {
 
   const addOns = [
     { service: 'Logo design', price: 'Ksh 3,000+' },
-    { service: 'Extra web page', price: 'Ksh 1,000' },
-    { service: 'Video editing', price: 'Ksh 2,000' },
-    { service: 'Social media management', price: 'From Ksh 4,000' },
-    { service: 'Poster/Flyer', price: 'Ksh 1,000' },
-    { service: 'Strategy call', price: 'Ksh 1,500' }
+    { service: 'Extra web page', price: 'Ksh 1,000 per page' },
+    { service: 'Monthly social media management', price: 'From Ksh 4,000' },
+    { service: 'Video/Reels editing', price: 'Ksh 2,000 per video' },
+    { service: 'Email marketing setup', price: 'Ksh 3,000+' },
+    { service: 'Digital coaching session (1-on-1)', price: 'Ksh 1,500' },
+    { service: 'Facebook/Instagram Ads management', price: 'From Ksh 5,000 per month' },
+    { service: 'Google My Business setup & optimization', price: 'Ksh 2,000' },
+    { service: 'Marketing poster/flyer design', price: 'Ksh 1,000 each' },
+    { service: 'Website maintenance (updates, backups)', price: 'From Ksh 3,000 per month' },
+    { service: 'WhatsApp Business setup & optimization', price: 'Ksh 1,500' }
   ];
 
   const scrollToContact = () => {
@@ -192,7 +197,7 @@ const Services = () => {
         {/* Add-ons */}
         <div className="bg-white rounded-2xl p-8 shadow-lg">
           <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">Add-On Services</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {addOns.map((addon, index) => (
               <div key={index} className="flex justify-between items-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300">
                 <span className="text-gray-700 font-medium">{addon.service}</span>
