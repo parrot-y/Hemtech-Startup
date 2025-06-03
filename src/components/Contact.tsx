@@ -40,7 +40,7 @@ const Contact = () => {
     });
   };
 
-  const whatsappNumber = "+254700000000"; // Replace with actual WhatsApp number
+  const whatsappNumber = "+254742321521";
   const whatsappMessage = "Hi Hemstone! I'm interested in your digital services. Can we discuss my project?";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -72,7 +72,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone / WhatsApp</h4>
-                    <p className="text-gray-600">+254 700 000 000</p>
+                    <p className="text-gray-600">+254 742 321 521</p>
+                    <p className="text-gray-600">+254 713 707 483</p>
                   </div>
                 </div>
                 
@@ -82,7 +83,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-600">hello@bizintel.co.ke</p>
+                    <p className="text-gray-600">vidonyihemstone99@gmail.com</p>
                   </div>
                 </div>
                 

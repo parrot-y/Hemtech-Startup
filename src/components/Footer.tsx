@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
@@ -99,11 +98,14 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center">
                 <Phone className="w-5 h-5 text-purple-400 mr-3" />
-                <span className="text-gray-300">+254 700 000 000</span>
+                <div>
+                  <div className="text-gray-300">+254 742 321 521</div>
+                  <div className="text-gray-300">+254 713 707 483</div>
+                </div>
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 text-purple-400 mr-3" />
-                <span className="text-gray-300">hello@bizintel.co.ke</span>
+                <span className="text-gray-300">vidonyihemstone99@gmail.com</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="w-5 h-5 text-purple-400 mr-3" />
@@ -114,7 +116,7 @@ const Footer = () => {
             <div className="mt-6 p-4 bg-gray-800 rounded-lg">
               <p className="text-sm text-gray-300 mb-2">Ready to start your project?</p>
               <a
-                href="https://wa.me/254700000000"
+                href="https://wa.me/254742321521"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105"
