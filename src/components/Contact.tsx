@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageCircle, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -25,11 +25,12 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
+    // Note: Currently this form only shows a toast notification
+    // To actually send emails, you'll need to connect a backend service
     console.log('Form submitted:', formData);
     toast({
-      title: "Message Sent!",
-      description: "Thank you for your inquiry. I'll get back to you within 24 hours.",
+      title: "Message Received!",
+      description: "Thank you for your inquiry. I'll get back to you within 24 hours via email or WhatsApp.",
     });
     setFormData({
       name: '',
@@ -134,7 +135,18 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="animate-fade-in">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Send a Message</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Send a Message</h3>
+              
+              {/* Form status note */}
+              <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                <div className="flex items-start">
+                  <AlertCircle className="w-5 h-5 text-amber-600 mr-2 mt-0.5" />
+                  <div className="text-sm text-amber-800">
+                    <p className="font-semibold mb-1">Form Status:</p>
+                    <p>This form currently shows a confirmation message. For fastest response, please use WhatsApp or email directly. I'm working on connecting this form to a backend service.</p>
+                  </div>
+                </div>
+              </div>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -205,6 +217,7 @@ const Contact = () => {
                       <option value="seo">SEO Optimization</option>
                       <option value="digital-marketing">Digital Marketing</option>
                       <option value="content-creation">Content Creation</option>
+                      <option value="ai-integration">AI Integration</option>
                       <option value="other">Other</option>
                     </select>
                   </div>
@@ -222,7 +235,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full border-gray-300 focus:border-purple-600 focus:ring-purple-600"
-                    placeholder="Tell us about your project, goals, timeline, and budget..."
+                    placeholder="Tell me about your project, goals, timeline, and budget..."
                   />
                 </div>
 

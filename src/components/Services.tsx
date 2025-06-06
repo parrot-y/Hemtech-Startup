@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Monitor, Smartphone, Palette, TrendingUp, Search, Video } from 'lucide-react';
+import { Monitor, Smartphone, Palette, TrendingUp, Search, Video, Brain, Bot, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Services = () => {
@@ -96,7 +96,20 @@ const Services = () => {
     { service: 'Google My Business setup & optimization', price: 'Ksh 2,000' },
     { service: 'Marketing poster/flyer design', price: 'Ksh 1,000 each' },
     { service: 'Website maintenance (updates, backups)', price: 'From Ksh 3,000 per month' },
-    { service: 'WhatsApp Business setup & optimization', price: 'Ksh 1,500' }
+    { service: 'WhatsApp Business setup & optimization', price: 'Ksh 1,500' },
+    // AI Services
+    { service: 'AI Chatbot integration for customer service', price: 'Ksh 8,000+' },
+    { service: 'AI Content Generation setup (blogs, social media)', price: 'Ksh 6,000+' },
+    { service: 'AI-powered analytics and insights dashboard', price: 'Ksh 10,000+' },
+    { service: 'AI Email automation and personalization', price: 'Ksh 7,000+' },
+    { service: 'AI Image generation and editing tools setup', price: 'Ksh 5,000+' },
+    { service: 'AI Voice assistant for business automation', price: 'Ksh 12,000+' },
+    { service: 'AI Recommendation system for e-commerce', price: 'Ksh 15,000+' },
+    { service: 'AI Data analysis and business intelligence', price: 'Ksh 18,000+' },
+    { service: 'AI-powered inventory management system', price: 'Ksh 20,000+' },
+    { service: 'AI Social media scheduling and optimization', price: 'Ksh 4,500+' },
+    { service: 'AI Customer behavior analysis setup', price: 'Ksh 12,000+' },
+    { service: 'AI Translation services integration', price: 'Ksh 6,500+' }
   ];
 
   const scrollToContact = () => {
@@ -114,7 +127,7 @@ const Services = () => {
             Our <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive digital solutions to help your business thrive in Kenya's digital landscape
+            Comprehensive digital solutions including cutting-edge AI integration to help your business thrive
           </p>
         </div>
 
@@ -194,16 +207,37 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Add-ons */}
+        {/* Enhanced Add-ons with AI Services */}
         <div className="bg-white rounded-2xl p-8 shadow-lg">
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">Add-On Services</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Add-On Services & <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">AI Solutions</span>
+            </h3>
+            <div className="flex justify-center items-center gap-2 mb-4">
+              <Brain className="w-6 h-6 text-purple-600" />
+              <span className="text-gray-600">Now featuring AI-powered business solutions</span>
+              <Bot className="w-6 h-6 text-blue-600" />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {addOns.map((addon, index) => (
-              <div key={index} className="flex justify-between items-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300">
-                <span className="text-gray-700 font-medium">{addon.service}</span>
-                <span className="text-purple-600 font-bold">{addon.price}</span>
+              <div key={index} className={`flex justify-between items-center p-4 rounded-xl transition-colors duration-300 ${
+                addon.service.includes('AI') 
+                  ? 'bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 hover:from-purple-100 hover:to-blue-100' 
+                  : 'bg-gray-50 hover:bg-gray-100'
+              }`}>
+                <div className="flex items-center">
+                  {addon.service.includes('AI') && <Zap className="w-4 h-4 text-purple-600 mr-2" />}
+                  <span className="text-gray-700 font-medium text-sm">{addon.service}</span>
+                </div>
+                <span className={`font-bold text-sm ${
+                  addon.service.includes('AI') ? 'text-purple-600' : 'text-gray-800'
+                }`}>{addon.price}</span>
               </div>
             ))}
+          </div>
+          <div className="mt-6 p-4 bg-gradient-to-r from-purple-100 to-blue-100 rounded-xl text-center">
+            <p className="text-purple-800 font-semibold">🚀 Ready to integrate AI into your business? Let's discuss your custom solution!</p>
           </div>
         </div>
       </div>

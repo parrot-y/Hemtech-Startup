@@ -1,14 +1,15 @@
+
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Github, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Twitter, href: "https://x.com/Human_hem", label: "Twitter" },
+    { icon: Github, href: "https://github.com/parrot-y", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/hemstone-agufana-093346364/", label: "LinkedIn" },
     { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
   ];
 
   const quickLinks = [
@@ -25,6 +26,7 @@ const Footer = () => {
     "Graphic Design",
     "SEO Optimization",
     "Digital Marketing",
+    "AI Integration",
     "Content Creation"
   ];
 
@@ -45,13 +47,15 @@ const Footer = () => {
               BIZINTEL
             </h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Your creative partner in digital excellence. Helping businesses in Kenya grow smarter and shine brighter online.
+              Your creative partner in digital excellence. Helping businesses in Kenya grow smarter and shine brighter online with cutting-edge AI solutions.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="bg-gray-800 p-3 rounded-full hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-110"
                 >
