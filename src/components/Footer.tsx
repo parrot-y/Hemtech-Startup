@@ -21,13 +21,13 @@ const Footer = () => {
   ];
 
   const services = [
-    "Premium Web Design",
-    "AI-Powered Solutions",
-    "Social Media Mastery",
+    "Web Design & Development",
+    "Mobile App Development", 
+    "AI Integration Solutions",
+    "SEO Optimization",
+    "Social Media Management",
     "Brand Identity Design",
-    "SEO & Digital Marketing",
-    "Content Creation",
-    "E-commerce Development"
+    "Email Marketing Setup"
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -61,7 +61,7 @@ const Footer = () => {
           <div className="flex justify-center items-center mb-6">
             <Crown className="w-12 h-12 text-violet-400 mr-3" />
             <h3 className="text-6xl font-black bg-gradient-to-r from-violet-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
-              BIZINTEL
+              HEMTECH
             </h3>
             <Zap className="w-12 h-12 text-yellow-400 ml-3 animate-bounce" />
           </div>
@@ -72,7 +72,7 @@ const Footer = () => {
             <span className="text-lg text-white ml-3 font-bold">5.0 Client Rating</span>
           </div>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
-            🚀 Transforming businesses with world-class digital solutions. We don't just build websites - we create digital empires that dominate markets and captivate audiences worldwide.
+            🚀 Professional Digital Solutions for Brands That Want to Win. We don't just build websites - we create digital empires that dominate markets and captivate audiences worldwide.
           </p>
         </div>
 
@@ -81,10 +81,10 @@ const Footer = () => {
           <div className="lg:col-span-1 bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
             <div className="flex items-center mb-6">
               <Rocket className="w-10 h-10 text-violet-400 mr-3 animate-bounce" />
-              <h4 className="text-2xl font-bold text-white">Innovation Hub</h4>
+              <h4 className="text-2xl font-bold text-white">Digital Studio</h4>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Where cutting-edge technology meets creative excellence. We transform ideas into digital masterpieces that lead industries.
+              Where cutting-edge technology meets creative excellence. We transform ideas into digital masterpieces that lead industries and drive real business growth.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -123,7 +123,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Premium Services */}
+          {/* HemTech Services */}
           <div className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
             <h4 className="text-2xl font-bold mb-6 text-violet-400 flex items-center">
               <Zap className="w-6 h-6 mr-2 animate-pulse" />
@@ -133,7 +133,7 @@ const Footer = () => {
               {services.map((service, index) => (
                 <li key={index} className="flex items-center">
                   <div className="w-2 h-2 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full mr-3 animate-pulse" style={{animationDelay: `${index * 0.1}s`}}></div>
-                  <span className="text-gray-300 hover:text-violet-400 transition-colors duration-200 cursor-pointer font-medium text-lg">
+                  <span className="text-gray-300 hover:text-violet-400 transition-colors duration-200 cursor-pointer font-medium text-sm">
                     {service}
                   </span>
                 </li>
@@ -187,10 +187,10 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
             <div className="text-gray-300 text-lg mb-4 md:mb-0 flex items-center">
               <Crown className="w-6 h-6 text-violet-400 mr-2" />
-              © {currentYear} BIZINTEL. All rights reserved. Crafted with 💜 in Kenya. 
+              © {currentYear} HemTech. All rights reserved. Crafted with 💜 in Kenya. 
               <span className="text-violet-400 font-bold ml-2 flex items-center">
                 <Star className="w-4 h-4 mr-1 animate-spin" />
-                World-Class Digital Solutions.
+                Professional Digital Solutions.
                 <Zap className="w-4 h-4 ml-1 animate-pulse" />
               </span>
             </div>

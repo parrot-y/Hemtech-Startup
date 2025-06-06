@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Monitor, Smartphone, Palette, TrendingUp, Search, Video, Brain, Bot, Zap, Sparkles, Star, Crown } from 'lucide-react';
+import { Monitor, Smartphone, Palette, TrendingUp, Search, Video, Brain, Bot, Zap, Sparkles, Star, Crown, Globe, Mail, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Services = () => {
@@ -8,111 +8,126 @@ const Services = () => {
     {
       icon: Monitor,
       title: 'Web Design & Development',
-      description: 'Business websites, portfolios, landing pages, and e-commerce platforms with modern design',
+      description: 'Responsive, custom-built websites that convert visitors into customers',
       features: ['Responsive Design', 'SEO Optimized', 'Fast Loading', 'Mobile-First', 'CMS Integration']
     },
     {
       icon: Smartphone,
-      title: 'Social Media Management',
-      description: 'Complete social media strategy, content creation, and growth optimization',
-      features: ['Content Creation', 'Page Optimization', 'Growth Strategy', 'Analytics', 'Engagement']
-    },
-    {
-      icon: Palette,
-      title: 'Brand Design & Identity',
-      description: 'Complete brand identity including logos, brand kits, and marketing materials',
-      features: ['Logo Design', 'Brand Identity', 'Print Design', 'Digital Assets', 'Style Guides']
-    },
-    {
-      icon: Search,
-      title: 'SEO & Digital Marketing',
-      description: 'Comprehensive SEO optimization and digital marketing strategies for growth',
-      features: ['Keyword Research', 'On-Page SEO', 'Technical SEO', 'Local SEO', 'Content Marketing']
+      title: 'Mobile App Development',
+      description: 'Native and cross-platform mobile applications for iOS and Android',
+      features: ['Native Development', 'Cross-Platform', 'UI/UX Design', 'App Store Optimization', 'Push Notifications']
     },
     {
       icon: Brain,
-      title: 'AI Integration Solutions',
+      title: 'AI Integration for Business',
       description: 'Cutting-edge AI solutions including chatbots, automation, and intelligent analytics',
       features: ['AI Chatbots', 'Process Automation', 'Data Analytics', 'AI Content Generation', 'Smart Recommendations'],
       premium: true
     },
     {
+      icon: Search,
+      title: 'SEO Optimization',
+      description: 'Comprehensive SEO strategies to boost your search engine rankings',
+      features: ['Keyword Research', 'On-Page SEO', 'Technical SEO', 'Local SEO', 'Analytics & Reporting']
+    },
+    {
+      icon: TrendingUp,
+      title: 'Social Media Management',
+      description: 'Complete social media strategy, content creation, and growth optimization',
+      features: ['Content Creation', 'Monthly Packages', 'Growth Strategy', 'Analytics', 'Community Management']
+    },
+    {
+      icon: Palette,
+      title: 'Logo & Brand Identity Design',
+      description: 'Complete brand identity including logos, brand kits, and marketing materials',
+      features: ['Logo Design', 'Brand Identity', 'Brand Guidelines', 'Digital Assets', 'Print Materials']
+    },
+    {
+      icon: Globe,
+      title: 'Extra Web Pages / Landing Pages',
+      description: 'High-converting landing pages and additional website pages',
+      features: ['Landing Pages', 'Sales Funnels', 'A/B Testing', 'Conversion Optimization', 'Analytics Setup']
+    },
+    {
+      icon: Monitor,
+      title: 'Website Maintenance & Updates',
+      description: 'Ongoing website maintenance, updates, and technical support',
+      features: ['Regular Updates', 'Security Monitoring', 'Performance Optimization', 'Backup Management', '24/7 Support']
+    },
+    {
+      icon: TrendingUp,
+      title: 'Facebook / Instagram Ads Management',
+      description: 'Professional social media advertising campaigns that drive results',
+      features: ['Campaign Strategy', 'Ad Creation', 'Audience Targeting', 'Performance Tracking', 'ROI Optimization']
+    },
+    {
+      icon: Search,
+      title: 'Google My Business Optimization',
+      description: 'Local SEO optimization to improve your Google Business presence',
+      features: ['Profile Optimization', 'Review Management', 'Local Citations', 'Maps Optimization', 'Local SEO']
+    },
+    {
       icon: Video,
-      title: 'Content & Media Production',
-      description: 'Professional video editing, content writing, and multimedia production services',
-      features: ['Video Editing', 'Content Writing', 'Photography', 'Multimedia', 'Social Media Content']
+      title: 'Video Editing / Reels / Content Creation',
+      description: 'Professional video editing and content creation for social media',
+      features: ['Video Editing', 'Social Media Reels', 'Motion Graphics', 'Color Grading', 'Audio Enhancement']
+    },
+    {
+      icon: Mail,
+      title: 'Email Marketing Setup',
+      description: 'Professional email marketing campaigns and automation setup',
+      features: ['Email Templates', 'Automation Setup', 'List Management', 'Campaign Analytics', 'A/B Testing']
     }
   ];
 
   const packages = [
     {
-      name: 'Starter',
+      name: 'Starter Package',
       price: 'Ksh 7,500',
       originalPrice: 'Ksh 10,000',
       features: [
-        '1-page professional website',
-        '3 social media post designs',
-        'Basic brand color + font guide',
+        'One-page professional website',
         'Mobile responsive design',
+        'Basic SEO setup',
+        'Contact form integration',
         '1 revision round',
-        'Basic SEO setup'
+        'Social media integration'
       ],
       popular: false,
       color: 'from-blue-500 to-cyan-500'
     },
     {
-      name: 'Professional',
+      name: 'Complete Brand Kit',
       price: 'Ksh 12,000',
       originalPrice: 'Ksh 18,000',
       features: [
         '3-page website with animations',
-        '10 social media designs',
-        'Complete brand kit',
-        'Advanced SEO optimization',
+        'Complete brand identity',
+        'Logo design & brand kit',
+        'SEO optimization',
+        'Google Analytics setup',
         '2 revision rounds',
-        'Contact form integration',
-        'Google Analytics setup'
+        'Social media templates'
       ],
       popular: true,
       color: 'from-violet-600 to-purple-600'
     },
     {
-      name: 'Enterprise',
-      price: 'Ksh 22,000',
-      originalPrice: 'Ksh 35,000',
+      name: 'Monthly Social Media',
+      price: 'From Ksh 4,000/month',
+      originalPrice: 'Ksh 8,000/month',
       features: [
-        '5-page website + E-commerce',
-        'Unlimited social media designs',
-        'Complete brand identity',
-        'AI chatbot integration',
-        'Premium SEO & marketing',
-        'Strategy & feedback calls',
-        'Unlimited revisions',
-        '3 months free support'
+        'Daily social media posts',
+        'Content creation & design',
+        'Hashtag research',
+        'Engagement management',
+        'Monthly analytics report',
+        'Story templates',
+        'Growth strategy'
       ],
       popular: false,
-      color: 'from-amber-500 to-orange-500'
+      color: 'from-green-500 to-emerald-500'
     }
-  ];
-
-  const aiServices = [
-    { service: 'AI Chatbot integration for customer service', price: 'Ksh 8,000+' },
-    { service: 'AI Content Generation setup (blogs, social media)', price: 'Ksh 6,000+' },
-    { service: 'AI-powered analytics and insights dashboard', price: 'Ksh 10,000+' },
-    { service: 'AI Email automation and personalization', price: 'Ksh 7,000+' },
-    { service: 'AI Recommendation system for e-commerce', price: 'Ksh 15,000+' },
-    { service: 'AI Data analysis and business intelligence', price: 'Ksh 18,000+' }
-  ];
-
-  const standardAddOns = [
-    { service: 'Logo design', price: 'Ksh 3,000+' },
-    { service: 'Extra web page', price: 'Ksh 1,000 per page' },
-    { service: 'Monthly social media management', price: 'From Ksh 4,000' },
-    { service: 'Video/Reels editing', price: 'Ksh 2,000 per video' },
-    { service: 'Email marketing setup', price: 'Ksh 3,000+' },
-    { service: 'Facebook/Instagram Ads management', price: 'From Ksh 5,000 per month' },
-    { service: 'Google My Business optimization', price: 'Ksh 2,000' },
-    { service: 'Website maintenance & updates', price: 'From Ksh 3,000 per month' }
   ];
 
   const scrollToContact = () => {
@@ -136,10 +151,10 @@ const Services = () => {
             <Crown className="w-12 h-12 text-violet-600 animate-pulse" />
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            World-Class <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">Services</span>
+            Our <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            Comprehensive digital solutions powered by cutting-edge AI technology. Your success is our mission.
+            Professional digital solutions designed to help your brand thrive online and dominate your market.
           </p>
         </div>
 
@@ -169,8 +184,8 @@ const Services = () => {
                 <service.icon className={`w-10 h-10 ${service.premium ? 'text-violet-600' : 'text-blue-600'}`} />
               </div>
               
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed text-sm">{service.description}</p>
               
               <ul className="space-y-3">
                 {service.features.map((feature, idx) => (
@@ -188,7 +203,7 @@ const Services = () => {
         <div className="mb-20">
           <div className="text-center mb-12">
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Choose Your <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Success Package</span>
+              Choose Your <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Package</span>
             </h3>
             <p className="text-xl text-gray-600">Transparent pricing, exceptional value, guaranteed results</p>
           </div>
@@ -213,7 +228,7 @@ const Services = () => {
                 <div className="text-center mb-8">
                   <h4 className="text-2xl font-bold text-gray-900 mb-4">{pkg.name}</h4>
                   <div className="mb-4">
-                    <div className="text-5xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
                       {pkg.price}
                     </div>
                     <div className="text-lg text-gray-500 line-through">{pkg.originalPrice}</div>
@@ -246,66 +261,15 @@ const Services = () => {
           </div>
         </div>
 
-        {/* AI Services Showcase */}
-        <div className="bg-gradient-to-r from-violet-900 via-purple-900 to-blue-900 rounded-3xl p-12 mb-16 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%2523ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%224%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
-          
-          <div className="relative z-10 text-center mb-12">
-            <div className="flex justify-center mb-6">
-              <div className="bg-white/20 p-4 rounded-full">
-                <Brain className="w-12 h-12 text-white" />
-              </div>
-            </div>
-            <h3 className="text-4xl font-bold mb-4">
-              AI-Powered Solutions <span className="text-yellow-400">🚀</span>
-            </h3>
-            <p className="text-xl opacity-90 max-w-3xl mx-auto">
-              Stay ahead of the competition with our cutting-edge AI integrations that automate, optimize, and accelerate your business growth.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {aiServices.map((service, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300">
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center">
-                    <Zap className="w-5 h-5 text-yellow-400 mr-3" />
-                    <span className="font-semibold">{service.service}</span>
-                  </div>
-                  <span className="text-yellow-400 font-bold">{service.price}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-8">
-            <Button
-              onClick={scrollToContact}
-              className="bg-white text-violet-900 hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105"
-            >
-              <Sparkles className="mr-2" />
-              Explore AI Solutions
-            </Button>
-          </div>
-        </div>
-
-        {/* Standard Add-ons */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50">
-          <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Additional <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Services</span>
-            </h3>
-            <p className="text-gray-600">Enhance your package with these premium add-ons</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {standardAddOns.map((addon, index) => (
-              <div key={index} className="flex justify-between items-center p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors duration-300">
-                <span className="text-gray-700 font-medium">{addon.service}</span>
-                <span className="font-bold text-violet-600">{addon.price}</span>
-              </div>
-            ))}
-          </div>
+        <div className="text-center">
+          <Button
+            onClick={scrollToContact}
+            size="lg"
+            className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 hover:from-violet-700 hover:via-purple-700 hover:to-blue-700 text-white px-12 py-6 text-lg font-bold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110"
+          >
+            <Sparkles className="mr-3" size={24} />
+            Get Your Free Quote Today
+          </Button>
         </div>
       </div>
     </section>

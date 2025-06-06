@@ -39,8 +39,8 @@ const Hero = () => {
     }
   };
 
-  const scrollToPortfolio = () => {
-    const element = document.getElementById('portfolio');
+  const scrollToServices = () => {
+    const element = document.getElementById('services');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -93,56 +93,57 @@ const Hero = () => {
           {/* Left side - Content */}
           <div className="text-left space-y-8 animate-fade-in">
             <div className="flex items-center gap-4 mb-6">
-              <Crown className="w-16 h-16 text-violet-600 animate-pulse" />
+              <div className="bg-gradient-to-r from-violet-600 to-purple-600 p-4 rounded-2xl">
+                <Crown className="w-12 h-12 text-white" />
+              </div>
               <div className="flex gap-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 text-yellow-500 animate-spin" style={{animationDelay: `${i * 0.2}s`}} />
+                  <Star key={i} className="w-6 h-6 text-yellow-500 fill-current animate-pulse" style={{animationDelay: `${i * 0.2}s`}} />
                 ))}
               </div>
             </div>
             
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 leading-none">
-              Transform Your
-              <span className="block bg-gradient-to-r from-violet-600 via-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent animate-pulse drop-shadow-2xl">
-                Digital Future
+              <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+                HemTech
               </span>
               <span className="block text-4xl md:text-5xl lg:text-6xl mt-4 text-gray-700">
-                with AI-Powered Solutions
+                Digital Solutions
               </span>
             </h1>
             
             <div className="flex items-center gap-3 mb-6">
               <Zap className="w-8 h-8 text-yellow-500 animate-bounce" />
-              <p className="text-2xl md:text-3xl text-gray-800 font-bold bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border-2 border-violet-200">
-                World-Class Digital Excellence
+              <p className="text-xl md:text-2xl text-gray-800 font-bold bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border-2 border-violet-200">
+                Professional Digital Solutions for Brands That Want to Win
               </p>
               <Rocket className="w-8 h-8 text-blue-500 animate-bounce delay-300" />
             </div>
             
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/50 max-w-2xl">
-              We craft revolutionary digital experiences that dominate markets. From AI-powered websites to cutting-edge mobile apps, 
-              we turn your vision into digital reality with world-class technology and stunning design.
+              HemTech is a modern digital studio led by Hemstone Vidonyi. We help brands grow through expertly designed websites, 
+              content, and marketing. Whether you're just starting or scaling, we provide everything your brand needs to thrive online.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 pt-4">
               <Button 
-                onClick={scrollToPortfolio}
+                onClick={scrollToContact}
                 size="lg" 
                 className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 hover:from-violet-700 hover:via-purple-700 hover:to-blue-700 text-white px-10 py-6 text-xl font-black rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 animate-pulse border-4 border-white/30"
               >
                 <Sparkles className="mr-3" size={24} />
-                View Our Work
+                Get a Free Quote
                 <ArrowRight className="ml-3" size={24} />
               </Button>
               
               <Button 
-                onClick={scrollToContact}
+                onClick={scrollToServices}
                 variant="outline" 
                 size="lg"
                 className="border-4 border-violet-600 text-violet-600 hover:bg-gradient-to-r hover:from-violet-600 hover:to-purple-600 hover:text-white px-10 py-6 text-xl font-black rounded-full transition-all duration-300 transform hover:scale-110 shadow-xl hover:shadow-2xl bg-white/90 backdrop-blur-md"
               >
                 <Play className="mr-3" size={24} />
-                Start Project
+                View Services
               </Button>
             </div>
           </div>
@@ -170,12 +171,12 @@ const Hero = () => {
               
               <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce delay-300">
                 <Code className="w-8 h-8 text-blue-600 mb-2" />
-                <p className="text-sm font-bold text-gray-800">Custom Development</p>
+                <p className="text-sm font-bold text-gray-800">Web Development</p>
               </div>
               
               <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce delay-500">
                 <Database className="w-8 h-8 text-purple-600 mb-2" />
-                <p className="text-sm font-bold text-gray-800">Data Analytics</p>
+                <p className="text-sm font-bold text-gray-800">SEO & Marketing</p>
               </div>
               
               <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce delay-700">
