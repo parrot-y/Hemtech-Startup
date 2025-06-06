@@ -20,7 +20,7 @@ const Portfolio = () => {
       description: 'Professional logistics and transportation services platform with comprehensive service showcase',
       image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop',
       technologies: ['WebNode', 'Business', 'Logistics'],
-      link: 'https://vidlogistics.webnode.page/our-services/',
+      link: 'https://vidlogistics.webnode.page/',
       github: '#'
     },
     {
@@ -47,7 +47,7 @@ const Portfolio = () => {
       description: 'Professional law firm website with contact and consultation features, built for trust and credibility',
       image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop',
       technologies: ['WebNode', 'Legal', 'Professional'],
-      link: 'https://maringalawfirm.webnode.page/contact/',
+      link: 'https://maringalawfirm.webnode.page/',
       github: '#'
     },
     {
@@ -56,7 +56,7 @@ const Portfolio = () => {
       description: 'Motorcycle dealership and parts website with comprehensive product showcase and sales features',
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
       technologies: ['WebNode', 'E-commerce', 'Motorcycles'],
-      link: 'https://streams.webnode.page/motorcycles/',
+      link: 'https://streams.webnode.page/',
       github: '#'
     },
     {
@@ -76,10 +76,19 @@ const Portfolio = () => {
       technologies: ['Strikingly', 'Consulting', 'Business'],
       link: 'https://cheskingsguru.mystrikingly.com/',
       github: '#'
+    },
+    {
+      title: 'Portfolio Website',
+      category: 'Personal Portfolio',
+      description: 'Modern personal portfolio website showcasing creative work and professional achievements',
+      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop',
+      technologies: ['Netlify', 'Modern Design', 'Portfolio'],
+      link: 'https://friendly-tartufo-246c4c.netlify.app/',
+      github: '#'
     }
   ];
 
-  const categories = ['All', 'Web Design', 'Business Website', 'Food & Restaurant', 'Automotive', 'Legal Services', 'E-commerce', 'Education', 'Consulting'];
+  const categories = ['All', 'Web Design', 'Business Website', 'Food & Restaurant', 'Automotive', 'Legal Services', 'E-commerce', 'Education', 'Consulting', 'Personal Portfolio'];
   const [selectedCategory, setSelectedCategory] = React.useState('All');
 
   const filteredProjects = selectedCategory === 'All' 
@@ -87,26 +96,28 @@ const Portfolio = () => {
     : projects.filter(project => project.category === selectedCategory);
 
   const openProject = (url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+    if (url && url !== '#') {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
-    <section id="portfolio" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/40 relative overflow-hidden">
+    <section id="portfolio" className="py-20 bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
       {/* Enhanced background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-violet-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <div className="flex justify-center mb-6">
-            <Sparkles className="w-12 h-12 text-violet-600 animate-pulse" />
+            <Sparkles className="w-12 h-12 text-violet-400 animate-pulse" />
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Portfolio <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">Excellence</span>
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            Portfolio <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">Excellence</span>
           </h2>
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto mb-12 leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
             Real projects, real results. Each website crafted with precision, passion, and cutting-edge technology to deliver exceptional digital experiences.
           </p>
 
@@ -116,10 +127,10 @@ const Portfolio = () => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-8 py-4 rounded-full font-semibold transition-all duration-300 text-sm shadow-lg hover:shadow-xl transform hover:scale-105 ${
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 text-sm shadow-lg hover:shadow-xl transform hover:scale-105 ${
                   selectedCategory === category
                     ? 'bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 text-white shadow-2xl scale-105'
-                    : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white border border-gray-200 hover:border-violet-300'
+                    : 'bg-white/10 backdrop-blur-sm text-gray-300 hover:bg-white/20 border border-gray-600 hover:border-violet-400'
                 }`}
               >
                 {category}
@@ -133,7 +144,7 @@ const Portfolio = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className="group bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden border border-white/50"
+              className="group bg-white/10 backdrop-blur-sm rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden border border-white/20"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -156,14 +167,14 @@ const Portfolio = () => {
               </div>
               
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                <p className="text-gray-600 mb-6 text-sm leading-relaxed">{project.description}</p>
+                <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
+                <p className="text-gray-300 mb-6 text-sm leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="bg-gradient-to-r from-violet-100 to-purple-100 text-violet-700 px-3 py-1 rounded-full text-xs font-medium border border-violet-200"
+                      className="bg-gradient-to-r from-violet-600/20 to-purple-600/20 text-violet-300 px-3 py-1 rounded-full text-xs font-medium border border-violet-400/30"
                     >
                       {tech}
                     </span>
@@ -174,7 +185,7 @@ const Portfolio = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 border-violet-600 text-violet-600 hover:bg-gradient-to-r hover:from-violet-600 hover:to-purple-600 hover:text-white transition-all duration-300 font-semibold"
+                    className="flex-1 border-violet-400 text-violet-400 hover:bg-gradient-to-r hover:from-violet-600 hover:to-purple-600 hover:text-white transition-all duration-300 font-semibold bg-transparent"
                     onClick={() => openProject(project.link)}
                   >
                     <ExternalLink size={16} className="mr-2" />
@@ -183,7 +194,7 @@ const Portfolio = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 border-gray-300 text-gray-600 hover:bg-gray-600 hover:text-white transition-all duration-300 font-semibold"
+                    className="flex-1 border-gray-400 text-gray-300 hover:bg-gray-600 hover:text-white transition-all duration-300 font-semibold bg-transparent"
                   >
                     <Github size={16} className="mr-2" />
                     Details
