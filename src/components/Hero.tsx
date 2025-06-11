@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Play, Sparkles, Zap, Rocket, Crown, Star, Brain, Code, Database, Cpu, Bot, Globe } from 'lucide-react';
+import { ArrowRight, Play, Sparkles, Zap, Rocket, Star, Brain, Code, Database, Cpu, Bot, Globe, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -17,9 +16,7 @@ const Hero = () => {
     'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&crop=entropy&auto=format'
   ];
 
-  const techIcons = [Brain, Code, Database, Cpu, Bot, Globe];
-
-  // Shuffle images every 3 seconds
+  // Shuffle images every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIsVisible(false);
@@ -27,7 +24,7 @@ const Hero = () => {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % techImages.length);
         setIsVisible(true);
       }, 300);
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [techImages.length]);
@@ -47,41 +44,13 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-gray-900 to-black">
-      {/* Dynamic Tech Background */}
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center transition-all duration-1000 opacity-10"
-          style={{
-            backgroundImage: `url(${techImages[currentImageIndex]})`,
-            filter: 'blur(1px)'
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-gray-900/90 to-black/95"></div>
-      </div>
-      
-      {/* Floating Tech Elements */}
-      <div className="absolute inset-0">
-        {techIcons.map((Icon, index) => (
-          <div
-            key={index}
-            className={`absolute animate-bounce opacity-20`}
-            style={{
-              top: `${20 + (index * 15)}%`,
-              left: `${10 + (index * 15)}%`,
-              animationDelay: `${index * 0.5}s`,
-              animationDuration: `${3 + index}s`
-            }}
-          >
-            <Icon className="w-12 h-12 text-violet-400" />
-          </div>
-        ))}
-        
-        {/* Animated gradient orbs */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full opacity-40 animate-pulse blur-xl"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full opacity-50 animate-bounce blur-lg"></div>
-        <div className="absolute bottom-32 left-20 w-40 h-40 bg-gradient-to-r from-purple-500/15 to-pink-500/15 rounded-full opacity-35 animate-pulse delay-1000 blur-2xl"></div>
-        <div className="absolute bottom-20 right-32 w-20 h-20 bg-gradient-to-r from-indigo-500/20 to-violet-500/20 rounded-full opacity-30 animate-bounce delay-500 blur-lg"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-full opacity-60 animate-pulse blur-xl"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-indigo-400/10 to-purple-400/10 rounded-full opacity-50 animate-bounce blur-lg"></div>
+        <div className="absolute bottom-32 left-20 w-40 h-40 bg-gradient-to-r from-blue-400/5 to-cyan-400/5 rounded-full opacity-35 animate-pulse delay-1000 blur-2xl"></div>
+        <div className="absolute bottom-20 right-32 w-20 h-20 bg-gradient-to-r from-indigo-400/10 to-blue-400/10 rounded-full opacity-30 animate-bounce delay-500 blur-lg"></div>
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,118 +58,116 @@ const Hero = () => {
           
           {/* Left side - Content */}
           <div className="text-left space-y-8 animate-fade-in">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-gradient-to-r from-violet-600 to-purple-600 p-4 rounded-2xl">
-                <Crown className="w-12 h-12 text-white" />
+            {/* Trust Badge */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-3 rounded-xl shadow-lg">
+                <Rocket className="w-8 h-8 text-white" />
               </div>
-              <div className="flex gap-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 text-yellow-500 fill-current animate-pulse" style={{animationDelay: `${i * 0.2}s`}} />
-                ))}
-              </div>
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-none">
-              <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
-                HemTech
-              </span>
-              <span className="block text-4xl md:text-5xl lg:text-6xl mt-4 text-gray-300">
-                Digital Solutions
-              </span>
-            </h1>
-            
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="text-2xl md:text-3xl font-bold text-white bg-gradient-to-r from-violet-600/20 to-purple-600/20 backdrop-blur-sm px-8 py-4 rounded-full border border-violet-400/30">
-                BUILD • MANAGE • GROW
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-sm font-medium text-gray-600">Trusted by 10+ businesses</span>
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-6 pt-4">
+            {/* Main Headlines */}
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
+                <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                  Build.
+                </span>
+                <br />
+                <span className="text-gray-800">Manage.</span>
+                <br />
+                <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+                  Grow.
+                </span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl">
+                Your one-stop digital service provider. We transform businesses through 
+                <span className="font-semibold text-blue-600"> cutting-edge web development</span>, 
+                <span className="font-semibold text-indigo-600"> strategic SEO</span>, 
+                <span className="font-semibold text-purple-600"> social media management</span>, and 
+                <span className="font-semibold text-blue-600"> AI integration</span>.
+              </p>
+            </div>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <Button 
                 onClick={scrollToContact}
                 size="lg" 
-                className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 hover:from-violet-700 hover:via-purple-700 hover:to-blue-700 text-white px-10 py-6 text-xl font-black rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110"
+                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
               >
-                <Sparkles className="mr-3" size={24} />
+                <Sparkles className="mr-2" size={20} />
                 Get Started
-                <ArrowRight className="ml-3" size={24} />
+                <ArrowRight className="ml-2" size={20} />
               </Button>
               
               <Button 
                 onClick={scrollToServices}
                 variant="outline" 
                 size="lg"
-                className="border-2 border-violet-400 text-violet-400 hover:bg-gradient-to-r hover:from-violet-600 hover:to-purple-600 hover:text-white px-10 py-6 text-xl font-black rounded-full transition-all duration-300 transform hover:scale-110 shadow-xl hover:shadow-2xl bg-transparent backdrop-blur-md"
+                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl bg-white"
               >
-                <Play className="mr-3" size={24} />
-                Our Services
+                <Play className="mr-2" size={20} />
+                See Pricing
               </Button>
+            </div>
+
+            {/* Social Proof Numbers */}
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600">10+</div>
+                <div className="text-sm text-gray-600 font-medium">Projects Completed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-indigo-600">100%</div>
+                <div className="text-sm text-gray-600 font-medium">Client Satisfaction</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600">24/7</div>
+                <div className="text-sm text-gray-600 font-medium">Support Available</div>
+              </div>
             </div>
           </div>
 
-          {/* Right side - Shuffling Images & Tech Showcase */}
+          {/* Right side - Visual Content */}
           <div className="relative">
-            <div className="relative w-full h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-violet-400/20">
+            <div className="relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
               {/* Main shuffling image */}
               <div 
                 className={`absolute inset-0 transition-all duration-500 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}
               >
                 <img 
                   src={techImages[currentImageIndex]}
-                  alt="Tech Innovation"
+                  alt="Professional Digital Services"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-violet-900/80 via-transparent to-blue-900/60"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-indigo-900/40"></div>
               </div>
               
-              {/* Floating tech cards */}
-              <div className="absolute top-4 left-4 bg-white/10 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce border border-white/20">
-                <Brain className="w-8 h-8 text-violet-400 mb-2" />
-                <p className="text-sm font-bold text-white">AI Solutions</p>
+              {/* Floating service cards */}
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce border border-blue-100">
+                <Brain className="w-6 h-6 text-blue-600 mb-2" />
+                <p className="text-sm font-semibold text-gray-800">AI Integration</p>
               </div>
               
-              <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce delay-300 border border-white/20">
-                <Code className="w-8 h-8 text-blue-400 mb-2" />
-                <p className="text-sm font-bold text-white">Development</p>
+              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce delay-300 border border-indigo-100">
+                <Code className="w-6 h-6 text-indigo-600 mb-2" />
+                <p className="text-sm font-semibold text-gray-800">Web Development</p>
               </div>
               
-              <div className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce delay-500 border border-white/20">
-                <Database className="w-8 h-8 text-purple-400 mb-2" />
-                <p className="text-sm font-bold text-white">SEO & Marketing</p>
+              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce delay-500 border border-purple-100">
+                <Database className="w-6 h-6 text-purple-600 mb-2" />
+                <p className="text-sm font-semibold text-gray-800">SEO & Marketing</p>
               </div>
               
-              <div className="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce delay-700 border border-white/20">
-                <Globe className="w-8 h-8 text-green-400 mb-2" />
-                <p className="text-sm font-bold text-white">Global Reach</p>
+              <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce delay-700 border border-green-100">
+                <Globe className="w-6 h-6 text-green-600 mb-2" />
+                <p className="text-sm font-semibold text-gray-800">Social Media</p>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Enhanced Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-20 max-w-6xl mx-auto">
-          <div className="text-center p-8 bg-white/5 backdrop-blur-md rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-110 border border-white/10">
-            <div className="text-5xl font-black bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent mb-3">25+</div>
-            <div className="text-white font-bold">Projects Delivered</div>
-            <div className="text-violet-400 text-sm mt-1">🏆 Successful</div>
-          </div>
-          
-          <div className="text-center p-8 bg-white/5 backdrop-blur-md rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-110 border border-white/10">
-            <div className="text-5xl font-black bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent mb-3">20+</div>
-            <div className="text-white font-bold">Global Clients</div>
-            <div className="text-blue-400 text-sm mt-1">⭐ 5-Star Reviews</div>
-          </div>
-          
-          <div className="text-center p-8 bg-white/5 backdrop-blur-md rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-110 border border-white/10">
-            <div className="text-5xl font-black bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent mb-3">3+</div>
-            <div className="text-white font-bold">Years Excellence</div>
-            <div className="text-amber-400 text-sm mt-1">🚀 Industry Leader</div>
-          </div>
-          
-          <div className="text-center p-8 bg-white/5 backdrop-blur-md rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-110 border border-white/10">
-            <div className="text-5xl font-black bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-3">100%</div>
-            <div className="text-white font-bold">Success Rate</div>
-            <div className="text-green-400 text-sm mt-1">💯 Guaranteed</div>
           </div>
         </div>
       </div>

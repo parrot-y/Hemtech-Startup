@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ExternalLink, Github, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -78,17 +77,17 @@ const Portfolio = () => {
       github: '#'
     },
     {
-      title: 'Portfolio Website',
-      category: 'Personal Portfolio',
-      description: 'Modern personal portfolio website showcasing creative work and professional achievements',
+      title: 'Immanuel Junior Academy',
+      category: 'Education',
+      description: 'Modern educational institution website showcasing academic programs and school achievements',
       image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop',
-      technologies: ['Netlify', 'Modern Design', 'Portfolio'],
+      technologies: ['Netlify', 'Education', 'Academic'],
       link: 'https://friendly-tartufo-246c4c.netlify.app/',
       github: '#'
     }
   ];
 
-  const categories = ['All', 'Web Design', 'Business Website', 'Food & Restaurant', 'Automotive', 'Legal Services', 'E-commerce', 'Education', 'Consulting', 'Personal Portfolio'];
+  const categories = ['All', 'Web Design', 'Business Website', 'Food & Restaurant', 'Automotive', 'Legal Services', 'E-commerce', 'Education', 'Consulting'];
   const [selectedCategory, setSelectedCategory] = React.useState('All');
 
   const filteredProjects = selectedCategory === 'All' 
@@ -102,23 +101,20 @@ const Portfolio = () => {
   };
 
   return (
-    <section id="portfolio" className="py-20 bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
-      {/* Enhanced background elements */}
+    <section id="portfolio" className="py-20 bg-gray-50 relative overflow-hidden">
+      {/* Background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-indigo-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <div className="flex justify-center mb-6">
-            <Sparkles className="w-12 h-12 text-violet-400 animate-pulse" />
-          </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Portfolio <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">Excellence</span>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Our <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-            Real projects, real results. Each website crafted with precision, passion, and cutting-edge technology to deliver exceptional digital experiences.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+            Real projects, real results. Each website crafted with precision and cutting-edge technology to deliver exceptional digital experiences.
           </p>
 
           {/* Category Filter */}
@@ -129,8 +125,8 @@ const Portfolio = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 text-sm shadow-lg hover:shadow-xl transform hover:scale-105 ${
                   selectedCategory === category
-                    ? 'bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 text-white shadow-2xl scale-105'
-                    : 'bg-white/10 backdrop-blur-sm text-gray-300 hover:bg-white/20 border border-gray-600 hover:border-violet-400'
+                    ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-2xl scale-105'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-blue-300'
                 }`}
               >
                 {category}
@@ -144,7 +140,7 @@ const Portfolio = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className="group bg-white/10 backdrop-blur-sm rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 overflow-hidden border border-white/20"
+              className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105 overflow-hidden border border-gray-100"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -154,7 +150,7 @@ const Portfolio = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="bg-gradient-to-r from-violet-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg backdrop-blur-sm">
+                  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg backdrop-blur-sm">
                     {project.category}
                   </span>
                 </div>
@@ -166,15 +162,15 @@ const Portfolio = () => {
                 </div>
               </div>
               
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-gray-300 mb-6 text-sm leading-relaxed">{project.description}</p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
+                <p className="text-gray-600 mb-4 text-sm leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="bg-gradient-to-r from-violet-600/20 to-purple-600/20 text-violet-300 px-3 py-1 rounded-full text-xs font-medium border border-violet-400/30"
+                      className="bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 px-3 py-1 rounded-full text-xs font-medium border border-blue-200"
                     >
                       {tech}
                     </span>
@@ -185,7 +181,7 @@ const Portfolio = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 border-violet-400 text-violet-400 hover:bg-gradient-to-r hover:from-violet-600 hover:to-purple-600 hover:text-white transition-all duration-300 font-semibold bg-transparent"
+                    className="flex-1 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 font-semibold"
                     onClick={() => openProject(project.link)}
                   >
                     <ExternalLink size={16} className="mr-2" />
@@ -194,7 +190,7 @@ const Portfolio = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 border-gray-400 text-gray-300 hover:bg-gray-600 hover:text-white transition-all duration-300 font-semibold bg-transparent"
+                    className="flex-1 border-gray-300 text-gray-600 hover:bg-gray-600 hover:text-white transition-all duration-300 font-semibold"
                   >
                     <Github size={16} className="mr-2" />
                     Details
@@ -208,10 +204,10 @@ const Portfolio = () => {
         <div className="text-center mt-16">
           <Button
             size="lg"
-            className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 hover:from-violet-700 hover:via-purple-700 hover:to-blue-700 text-white px-12 py-6 text-lg font-bold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110"
+            className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-12 py-6 text-lg font-bold rounded-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110"
           >
             <Sparkles className="mr-3" size={24} />
-            Explore All Projects
+            Start Your Project
           </Button>
         </div>
       </div>
