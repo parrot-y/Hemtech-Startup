@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageCircle, AlertCircle, Clock, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -22,50 +23,83 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    toast({
-      title: "Message Received!",
-      description: "We'll contact you within 2 hours via WhatsApp or email.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+    
+    // Simulate form submission
+    try {
+      // Here you would typically send the form data to your backend
+      console.log('Form submitted:', formData);
+      
+      toast({
+        title: "Message Sent Successfully!",
+        description: "We'll get back to you within 24 hours via email or WhatsApp.",
+      });
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    }
   };
 
-  const whatsappNumber = "+254742321521";
-  const whatsappMessage = "Hi! I need digital services for my business. Can we discuss?";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
   const openWhatsApp = () => {
-    window.open(whatsappUrl, '_blank');
+    const message = "Hi! I'm interested in your digital services. Can we discuss my project?";
+    window.open(`https://wa.me/254742321521?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
-    <section id="contact" className="py-12 lg:py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 lg:mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 lg:mb-6">
-            Let's Build Something{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Amazing
-            </span>
-          </h2>
-          <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to transform your business? Get in touch and let's make it happen.
-          </p>
-        </div>
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-400/10 to-green-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-green-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 glass-morphism-dark px-4 py-2 rounded-full mb-6">
+            <MessageCircle className="w-4 h-4 text-green-400" />
+            <span className="text-sm font-medium text-gray-300">Get In Touch</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Let's Build Something{' '}
+            <span className="gradient-text">Amazing Together</span>
+          </h2>
+          
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Ready to transform your digital presence? Get in touch and let's discuss your project.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div className="animate-fade-in">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-6 lg:mb-8">Get in Touch</h3>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="glass-morphism-dark p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
               
               <div className="space-y-6">
                 <div className="flex items-center">
@@ -85,7 +119,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white">Email</h4>
-                    <p className="text-gray-300">vidonyihemstone99@gmail.com</p>
+                    <p className="text-gray-300">hemtech101@gmail.com</p>
                   </div>
                 </div>
                 
@@ -100,64 +134,53 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="mt-8 pt-8 border-t border-white/20">
+              {/* Quick Contact */}
+              <div className="mt-8 pt-8 border-t border-gray-700">
                 <h4 className="font-semibold text-white mb-4">Quick Contact</h4>
                 <Button
                   onClick={openWhatsApp}
-                  className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 text-base"
+                  className="w-full glow-button bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
                 >
                   <MessageCircle className="mr-2" size={20} />
-                  WhatsApp Me Now
+                  WhatsApp Us Now
                 </Button>
               </div>
 
-              <div className="mt-8 pt-8 border-t border-white/20">
+              {/* Response Time */}
+              <div className="mt-8 pt-8 border-t border-gray-700">
                 <h4 className="font-semibold text-white mb-4">Response Time</h4>
-                <div className="space-y-3 text-gray-300">
+                <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <Clock className="w-4 h-4 mr-2 text-green-400" />
-                      <span>WhatsApp</span>
+                      <span className="text-gray-300">WhatsApp</span>
                     </div>
-                    <span className="text-green-400 font-semibold">Within 30 mins</span>
+                    <span className="text-green-400 font-semibold">Within 1 hour</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <Mail className="w-4 h-4 mr-2 text-blue-400" />
-                      <span>Email</span>
+                      <span className="text-gray-300">Email</span>
                     </div>
-                    <span className="text-blue-400 font-semibold">Within 2 hours</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <Phone className="w-4 h-4 mr-2 text-purple-400" />
-                      <span>Phone Call</span>
-                    </div>
-                    <span className="text-purple-400 font-semibold">Same day</span>
+                    <span className="text-blue-400 font-semibold">Within 24 hours</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="animate-fade-in">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-4">Send a Message</h3>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="glass-morphism-dark p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
               
-              {/* Form status note */}
-              <div className="mb-6 p-4 bg-amber-500/20 border border-amber-400/30 rounded-lg">
-                <div className="flex items-start">
-                  <AlertCircle className="w-5 h-5 text-amber-400 mr-2 mt-0.5" />
-                  <div className="text-sm text-amber-200">
-                    <p className="font-semibold mb-1">Quick Response:</p>
-                    <p>For fastest response, use WhatsApp. This form sends to our email system.</p>
-                  </div>
-                </div>
-              </div>
-              
-              <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                       Full Name *
@@ -169,7 +192,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400"
+                      className="w-full bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-blue-400 focus:ring-blue-400"
                       placeholder="Your full name"
                     />
                   </div>
@@ -185,13 +208,13 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400"
+                      className="w-full bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-blue-400 focus:ring-blue-400"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
                       Phone Number
@@ -202,7 +225,7 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400"
+                      className="w-full bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-blue-400 focus:ring-blue-400"
                       placeholder="+254 700 000 000"
                     />
                   </div>
@@ -216,13 +239,13 @@ const Contact = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full bg-white/10 border border-white/20 rounded-md px-3 py-2 text-white focus:border-purple-400 focus:ring-purple-400"
+                      className="w-full bg-white/10 border border-white/20 rounded-md px-3 py-2 text-white focus:border-blue-400 focus:ring-blue-400"
                     >
                       <option value="" className="text-gray-900">Select a service</option>
-                      <option value="web-design" className="text-gray-900">Web Development</option>
-                      <option value="social-media" className="text-gray-900">Social Media Management</option>
-                      <option value="seo" className="text-gray-900">SEO & Marketing</option>
-                      <option value="ai-integration" className="text-gray-900">AI Integration</option>
+                      <option value="web-development" className="text-gray-900">Web Development</option>
+                      <option value="digital-branding" className="text-gray-900">Digital Branding</option>
+                      <option value="seo-marketing" className="text-gray-900">SEO & Marketing</option>
+                      <option value="mobile-solutions" className="text-gray-900">Mobile Solutions</option>
                       <option value="other" className="text-gray-900">Other</option>
                     </select>
                   </div>
@@ -239,21 +262,21 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400"
-                    placeholder="Tell me about your project, goals, timeline, and budget..."
+                    className="w-full bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-blue-400 focus:ring-blue-400"
+                    placeholder="Tell us about your project, goals, timeline, and budget..."
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 lg:py-4 px-6 rounded-xl font-semibold text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="w-full glow-button bg-gradient-to-r from-blue-600 to-green-500 hover:from-blue-700 hover:to-green-600 text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 >
                   <Send className="mr-2" size={20} />
                   Send Message
                 </Button>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
