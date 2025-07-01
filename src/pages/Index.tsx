@@ -1,28 +1,28 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import About from '../components/About';
-import Services from '../components/Services';
-import Portfolio from '../components/Portfolio';
-import Testimonials from '../components/Testimonials';
-import Contact from '../components/Contact';
-import Footer from '../components/Footer';
+import EliteNavbar from '../components/EliteNavbar';
+import EliteHero from '../components/EliteHero';
+import EliteAbout from '../components/EliteAbout';
+import EliteServices from '../components/EliteServices';
+import ElitePortfolio from '../components/ElitePortfolio';
+import EliteTestimonials from '../components/EliteTestimonials';
+import EliteContact from '../components/EliteContact';
+import EliteFooter from '../components/EliteFooter';
 import ChatBot from '../components/ChatBot';
-import ParticleBackground from '../components/ParticleBackground';
+import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
-      <ParticleBackground />
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Portfolio />
-      <Testimonials />
-      <Contact />
-      <Footer />
+    <div className="min-h-screen bg-white">
+      <EliteNavbar />
+      <EliteHero />
+      <EliteAbout />
+      <EliteServices />
+      <ElitePortfolio />
+      <EliteTestimonials />
+      <EliteContact />
+      <EliteFooter />
       <ChatBot />
+      <Toaster />
     </div>
   );
 };
