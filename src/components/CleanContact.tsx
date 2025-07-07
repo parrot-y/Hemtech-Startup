@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin, Send, MessageCircle, Clock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const CleanContact = () => {
@@ -53,68 +52,35 @@ const CleanContact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gray-50 relative overflow-hidden">
+    <section id="contact" className="modern-section bg-gray-50">
       {/* Background Elements */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{ 
-            duration: 30, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-green-200/30 to-blue-200/30 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ 
-            rotate: [360, 0],
-            y: [0, -50, 0]
-          }}
-          transition={{ 
-            duration: 35, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-200/30 to-purple-200/30 rounded-full blur-3xl"
-        />
+      <div className="animated-bg">
+        <div className="floating-shape"></div>
+        <div className="floating-shape"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="modern-container relative z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16 fade-in">
           <div className="inline-flex items-center gap-2 bg-green-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <MessageCircle className="w-4 h-4" />
             Get In Touch
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="section-title text-gray-900 mb-6">
             Let's Build Something{' '}
-            <span className="text-green-500">Amazing Together</span>
+            <span className="gradient-text">Amazing Together</span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="section-subtitle">
             Ready to transform your digital presence? Get in touch and let's discuss your project.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="modern-grid modern-grid-2">
           {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+          <div className="fade-in">
+            <div className="modern-card">
               <h3 className="text-2xl font-bold text-gray-900 mb-8">Contact Information</h3>
               
               <div className="space-y-6">
@@ -155,7 +121,7 @@ const CleanContact = () => {
                 <h4 className="font-semibold text-gray-900 mb-4">Quick Contact</h4>
                 <button
                   onClick={openWhatsApp}
-                  className="w-full bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+                  className="modern-button modern-button-primary w-full"
                 >
                   <MessageCircle className="mr-2" size={20} />
                   WhatsApp Us Now
@@ -183,20 +149,15 @@ const CleanContact = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+          <div className="fade-in">
+            <div className="modern-card">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="modern-grid modern-grid-2">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                       Full Name *
@@ -208,7 +169,7 @@ const CleanContact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:ring-green-500 rounded-xl px-4 py-3"
+                      className="modern-input"
                       placeholder="Your full name"
                     />
                   </div>
@@ -224,13 +185,13 @@ const CleanContact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:ring-green-500 rounded-xl px-4 py-3"
+                      className="modern-input"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="modern-grid modern-grid-2">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number
@@ -241,7 +202,7 @@ const CleanContact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:ring-green-500 rounded-xl px-4 py-3"
+                      className="modern-input"
                       placeholder="+254 700 000 000"
                     />
                   </div>
@@ -255,7 +216,7 @@ const CleanContact = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full bg-gray-50 border border-gray-200 text-gray-900 focus:border-green-500 focus:ring-green-500 rounded-xl px-4 py-3"
+                      className="modern-input"
                     >
                       <option value="">Select a service</option>
                       <option value="web-development">Web Development</option>
@@ -274,25 +235,24 @@ const CleanContact = () => {
                   <textarea
                     id="message"
                     name="message"
-                    rows={5}
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:ring-green-500 rounded-xl px-4 py-3"
+                    className="modern-textarea"
                     placeholder="Tell us about your project, goals, timeline, and budget..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-green-500 hover:bg-green-600 text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+                  className="modern-button modern-button-primary w-full text-lg py-4"
                 >
                   <Send className="mr-2" size={20} />
                   Send Message
                 </button>
               </form>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

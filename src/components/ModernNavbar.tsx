@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const ModernNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,94 +31,91 @@ const ModernNavbar = () => {
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex-shrink-0"
-          >
-            <h1 className="text-3xl font-bold text-gray-900">
-              Hemtech<span className="text-green-500">.</span>
-            </h1>
-          </motion.div>
-          
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
-                <motion.button
-                  key={item.id}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-gray-700 hover:text-green-500 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+    <header className={`site-header fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/95 backdrop-blur-md shadow-soft' 
+        : 'bg-transparent'
+    }`}>
+      <div className="header-inner">
+        <div className="site-branding">
+          <h1 className="site-title text-gray-900 m-0">
+            Hemtech<span className="gradient-text">.</span>
+          </h1>
+        </div>
+        
+        {/* Desktop Navigation */}
+        <nav className="site-navigation hidden md:flex">
+          <ul className="menu">
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.id);
+                  }}
+                  className="text-gray-700 hover:text-green-500 font-medium transition-colors duration-200"
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 transition-all duration-300 group-hover:w-full"></span>
-                </motion.button>
-              ))}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('contact')}
-                className="bg-green-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-green-600"
-              >
-                Get Started
-              </motion.button>
-            </div>
-          </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="modern-button modern-button-primary ml-4"
+          >
+            Get Started
+          </button>
+        </nav>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-green-500 transition-colors duration-200"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.button>
-          </div>
+        {/* Mobile menu button */}
+        <div className="site-navigation-toggle-holder md:hidden">
+          <button
+            className="site-navigation-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+          >
+            <span className="site-navigation-toggle-icon">
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </span>
+          </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="md:hidden bg-white/95 backdrop-blur-md border-t"
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="site-navigation-dropdown">
+          <ul className="menu">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 hover:text-green-500 block px-3 py-2 text-base font-medium transition-colors duration-200 w-full text-left"
-              >
-                {item.name}
-              </button>
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.id);
+                  }}
+                >
+                  {item.name}
+                </a>
+              </li>
             ))}
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="bg-green-500 text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left mt-4"
-            >
-              Get Started
-            </button>
-          </div>
-        </motion.div>
+            <li>
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('contact');
+                }}
+                className="current-menu-item"
+              >
+                Get Started
+              </a>
+            </li>
+          </ul>
+        </div>
       )}
-    </motion.nav>
+    </header>
   );
 };
 

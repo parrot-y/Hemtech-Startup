@@ -1,6 +1,5 @@
 import React from 'react';
 import { Star, Quote, ArrowLeft, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const CleanTestimonials = () => {
   const testimonials = [
@@ -46,68 +45,33 @@ const CleanTestimonials = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="modern-section bg-white">
       {/* Background Elements */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ 
-            duration: 40, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-green-100/30 to-blue-100/30 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ 
-            rotate: [360, 0],
-            y: [0, -40, 0]
-          }}
-          transition={{ 
-            duration: 35, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-100/30 to-purple-100/30 rounded-full blur-3xl"
-        />
+      <div className="animated-bg">
+        <div className="floating-shape"></div>
+        <div className="floating-shape"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="modern-container relative z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16 fade-in">
           <div className="inline-flex items-center gap-2 bg-green-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Star className="w-4 h-4" />
             Client Testimonials
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            What Our <span className="text-green-500">Clients Say</span>
+          <h2 className="section-title text-gray-900 mb-6">
+            What Our <span className="gradient-text">Clients Say</span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="section-subtitle">
             Don't just take our word for it. Here's what our satisfied clients have to say about working with Hemtech.
           </p>
-        </motion.div>
+        </div>
 
         {/* Testimonial Carousel */}
         <div className="relative max-w-4xl mx-auto">
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100"
-          >
+          <div className="modern-card shadow-large fade-in">
             {/* Quote Icon */}
             <div className="flex justify-center mb-8">
               <Quote className="w-16 h-16 text-green-500 opacity-20" />
@@ -130,7 +94,7 @@ const CleanTestimonials = () => {
               <img
                 src={testimonials[currentIndex].image}
                 alt={testimonials[currentIndex].name}
-                className="w-16 h-16 rounded-full mr-4 border-4 border-white shadow-lg"
+                className="w-16 h-16 rounded-full mr-4 border-4 border-white shadow-medium"
               />
               <div className="text-center">
                 <div className="font-bold text-gray-900 text-lg">{testimonials[currentIndex].name}</div>
@@ -138,18 +102,16 @@ const CleanTestimonials = () => {
                 <div className="text-green-500 font-medium">{testimonials[currentIndex].company}</div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Navigation */}
           <div className="flex justify-center items-center mt-8 gap-4">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+            <button
               onClick={prevTestimonial}
-              className="bg-gray-100 hover:bg-green-100 p-3 rounded-full transition-colors duration-200"
+              className="modern-button modern-button-secondary p-3"
             >
-              <ArrowLeft className="w-6 h-6 text-gray-600 hover:text-green-600" />
-            </motion.button>
+              <ArrowLeft className="w-6 h-6" />
+            </button>
             
             {/* Dots */}
             <div className="flex gap-2">
@@ -166,42 +128,34 @@ const CleanTestimonials = () => {
               ))}
             </div>
             
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+            <button
               onClick={nextTestimonial}
-              className="bg-gray-100 hover:bg-green-100 p-3 rounded-full transition-colors duration-200"
+              className="modern-button modern-button-secondary p-3"
             >
-              <ArrowRight className="w-6 h-6 text-gray-600 hover:text-green-600" />
-            </motion.button>
+              <ArrowRight className="w-6 h-6" />
+            </button>
           </div>
         </div>
 
         {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-gray-200"
-        >
+        <div className="modern-grid modern-grid-4 mt-16 pt-16 border-t border-gray-200 fade-in">
           <div className="text-center">
-            <div className="text-4xl font-bold text-green-500 mb-2">50+</div>
+            <div className="text-4xl font-bold gradient-text mb-2">50+</div>
             <div className="text-gray-600 font-medium">Happy Clients</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-green-500 mb-2">100%</div>
+            <div className="text-4xl font-bold gradient-text mb-2">100%</div>
             <div className="text-gray-600 font-medium">Satisfaction Rate</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-green-500 mb-2">3+</div>
+            <div className="text-4xl font-bold gradient-text mb-2">3+</div>
             <div className="text-gray-600 font-medium">Years Experience</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-green-500 mb-2">24/7</div>
+            <div className="text-4xl font-bold gradient-text mb-2">24/7</div>
             <div className="text-gray-600 font-medium">Support</div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

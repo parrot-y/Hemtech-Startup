@@ -1,6 +1,5 @@
 import React from 'react';
 import { Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const CleanFooter = () => {
   const currentYear = new Date().getFullYear();
@@ -34,76 +33,36 @@ const CleanFooter = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-gray-900">
+    <footer className="site-footer bg-gray-900 text-white relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ 
-            duration: 40, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ 
-            rotate: [360, 0],
-            y: [0, -30, 0]
-          }}
-          transition={{ 
-            duration: 35, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
-        />
+      <div className="animated-bg">
+        <div className="floating-shape"></div>
+        <div className="floating-shape"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+      <div className="modern-container py-16 relative z-10">
         {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12 fade-in">
           <h3 className="text-4xl font-bold text-white mb-4">
-            Hemtech<span className="text-green-500">.</span>
+            Hemtech<span className="gradient-text">.</span>
           </h3>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Kenya's premier digital agency crafting cutting-edge solutions for modern businesses.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="modern-grid modern-grid-4 mb-12">
           {/* Company Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6 fade-in">
             <h4 className="text-xl font-bold text-white">About Hemtech</h4>
             <p className="text-gray-300 leading-relaxed">
               We specialize in creating exceptional digital experiences that drive business growth 
               and success in the modern digital landscape.
             </p>
-          </motion.div>
+          </div>
 
           {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6 fade-in">
             <h4 className="text-xl font-bold text-white">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
@@ -118,16 +77,10 @@ const CleanFooter = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* Services */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6 fade-in">
             <h4 className="text-xl font-bold text-white">Our Services</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
@@ -139,16 +92,10 @@ const CleanFooter = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6 fade-in">
             <h4 className="text-xl font-bold text-white">Contact Us</h4>
             <div className="space-y-4">
               <div className="flex items-center">
@@ -173,24 +120,18 @@ const CleanFooter = () => {
                 href="https://wa.me/254742321521"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-2xl text-sm font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="modern-button modern-button-primary"
               >
                 💬 WhatsApp Now
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Bottom Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="border-t border-gray-700 pt-8"
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 mb-4 md:mb-0 flex items-center">
+        <div className="border-t border-gray-700 pt-8 fade-in">
+          <div className="footer-inner">
+            <div className="text-gray-400 flex items-center">
               © {currentYear} Hemtech. All rights reserved. Crafted with 💙 in Kenya.
             </div>
             <div className="flex items-center space-x-6">
@@ -200,17 +141,15 @@ const CleanFooter = () => {
               <a href="#" className="text-gray-400 hover:text-green-400 transition-colors duration-200 text-sm">
                 Terms of Service
               </a>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+              <button
                 onClick={scrollToTop}
-                className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors duration-200"
+                className="modern-button modern-button-secondary p-2"
               >
-                <ArrowUp className="w-5 h-5 text-gray-400" />
-              </motion.button>
+                <ArrowUp className="w-5 h-5" />
+              </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Check, Star, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const PricingSection = () => {
   const [isAnnual, setIsAnnual] = useState(false);
@@ -69,55 +68,27 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-24 bg-white relative overflow-hidden">
+    <section id="pricing" className="modern-section bg-white">
       {/* Background Elements */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{ 
-            duration: 25, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          className="absolute top-20 left-10 w-80 h-80 bg-gradient-to-r from-green-100/40 to-blue-100/40 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ 
-            rotate: [360, 0],
-            y: [0, -50, 0]
-          }}
-          transition={{ 
-            duration: 30, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-100/40 to-purple-100/40 rounded-full blur-3xl"
-        />
+      <div className="animated-bg">
+        <div className="floating-shape"></div>
+        <div className="floating-shape"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="modern-container relative z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16 fade-in">
           <div className="inline-flex items-center gap-2 bg-green-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Star className="w-4 h-4" />
             Pricing Plans
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="section-title text-gray-900 mb-6">
             Simple, Transparent{' '}
-            <span className="text-green-500">Pricing</span>
+            <span className="gradient-text">Pricing</span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="section-subtitle mb-8">
             Choose the perfect plan for your business. All plans include our premium support and satisfaction guarantee.
           </p>
 
@@ -143,21 +114,17 @@ const PricingSection = () => {
               <span className="ml-1 text-green-500 font-semibold">(Save 20%)</span>
             </span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="modern-grid modern-grid-3">
           {plans.map((plan, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`relative bg-white rounded-3xl p-8 border-2 transition-all duration-300 ${
+              className={`modern-card scale-hover fade-in ${
                 plan.popular 
-                  ? 'border-green-500 shadow-xl scale-105' 
-                  : 'border-gray-100 hover:border-green-200 hover:shadow-lg'
+                  ? 'border-2 border-green-500 shadow-large transform scale-105' 
+                  : 'border border-gray-200'
               }`}
             >
               {plan.popular && (
@@ -192,10 +159,10 @@ const PricingSection = () => {
               </ul>
 
               <button
-                className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center ${
+                className={`modern-button w-full ${
                   plan.popular
-                    ? 'bg-green-500 text-white hover:bg-green-600 shadow-lg hover:shadow-xl'
-                    : 'bg-gray-50 text-gray-700 hover:bg-green-50 hover:text-green-600 border border-gray-200 hover:border-green-200'
+                    ? 'modern-button-primary'
+                    : 'modern-button-secondary'
                 }`}
                 onClick={() => {
                   const element = document.getElementById('contact');
@@ -207,19 +174,13 @@ const PricingSection = () => {
                 {plan.cta}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </button>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <div className="bg-gray-50 p-8 rounded-3xl max-w-2xl mx-auto">
+        <div className="text-center mt-16 fade-in">
+          <div className="modern-card max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h3>
             <p className="text-gray-600 mb-6">
               We offer tailored packages for unique requirements. Let's discuss your specific needs.
@@ -231,12 +192,12 @@ const PricingSection = () => {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
+              className="modern-button modern-button-primary text-lg px-8 py-4"
             >
               Contact Us
             </button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
