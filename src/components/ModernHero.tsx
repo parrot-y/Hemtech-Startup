@@ -7,8 +7,8 @@ const ModernHero = () => {
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const scrollToServices = () => {
-    const element = document.getElementById('services');
+  const scrollToPortfolio = () => {
+    const element = document.getElementById('portfolio');
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -19,21 +19,19 @@ const ModernHero = () => {
         <div className="floating-shape"></div>
         <div className="floating-shape"></div>
         <div className="floating-shape"></div>
+        <div className="tech-grid"></div>
       </div>
 
       <div className="modern-container relative z-10">
         <div className="text-center">
-          {/* Main Heading */}
+          {/* Main Motto */}
           <div className="mb-8">
-            <h1 className="hero-title text-gray-900 leading-tight">
-              <span className="block">Build.</span>
-              <span className="block gradient-text">Manage.</span>
-              <span className="block">Grow.</span>
+            <h1 className="hero-motto text-gray-900 leading-tight mb-6">
+              Build. Manage. Grow.
             </h1>
 
-            <p className="section-subtitle mb-12">
-              Kenya's premier digital agency crafting exceptional web experiences, 
-              modern branding, and digital solutions that transform businesses.
+            <p className="hero-subtitle text-gray-600 mb-12 max-w-2xl mx-auto">
+              Smarter digital solutions for forward-thinking businesses
             </p>
           </div>
 
@@ -43,16 +41,16 @@ const ModernHero = () => {
               onClick={scrollToContact}
               className="modern-button modern-button-primary text-lg px-8 py-4"
             >
-              Start Your Project
+              Start a Project
               <ArrowRight className="ml-2 w-5 h-5" />
             </button>
             
             <button
-              onClick={scrollToServices}
+              onClick={scrollToPortfolio}
               className="modern-button modern-button-secondary text-lg px-8 py-4"
             >
               <Play className="mr-2 w-5 h-5" />
-              View Our Work
+              See Our Work
             </button>
           </div>
 
