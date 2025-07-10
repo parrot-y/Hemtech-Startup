@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Monitor, Hotel, Palette, Share2, Smartphone, Bot, ArrowRight, CheckCircle } from 'lucide-react';
 
 const ModernServices = () => {
+  useEffect(() => {
+    // Intersection Observer for lazy loading animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.fade-in, .scale-in');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   const services = [
     {
       icon: Monitor,
@@ -138,7 +159,7 @@ const ModernServices = () => {
   ];
 
   return (
-    <section id="services" className="modern-section bg-gray-50">
+    <section id="services" className="modern-section">
       {/* Background Elements */}
       <div className="animated-bg">
         <div className="floating-shape"></div>
@@ -148,12 +169,12 @@ const ModernServices = () => {
       <div className="modern-container relative z-10">
         {/* Header */}
         <div className="text-center mb-16 fade-in">
-          <div className="inline-flex items-center gap-2 bg-green-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-yellow-600/10 text-yellow-400 border border-yellow-600/30 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <CheckCircle className="w-4 h-4" />
             Our Services
           </div>
           
-          <h2 className="section-title text-gray-900 mb-6">
+          <h2 className="section-title mb-6">
             Digital Solutions That{' '}
             <span className="gradient-text">Drive Results</span>
           </h2>
@@ -169,31 +190,30 @@ const ModernServices = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="modern-card scale-hover fade-in"
+              className="modern-card scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Service Header */}
               <div className="mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-green-50 p-4 mb-4">
-                  <service.icon className="w-full h-full text-green-500" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-600/20 to-yellow-500/20 p-4 mb-4 border border-yellow-600/30">
+                  <service.icon className="w-full h-full text-yellow-400" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">{service.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
+                <p className="text-gray-300 text-sm leading-relaxed mb-6">{service.description}</p>
               </div>
               
               {/* Pricing Tiers */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {service.tiers.map((tier, tierIndex) => (
-                  <div key={tierIndex} className="border border-gray-200 rounded-lg p-4 hover:border-green-500 transition-colors">
+                  <div key={tierIndex} className="pricing-card">
                     <div className="flex justify-between items-center mb-3">
-                      <div className="font-semibold text-gray-900">{tier.name}</div>
-                      <div className="text-lg font-bold text-green-500">{tier.price}</div>
+                      <div className="tier-name">{tier.name}</div>
+                      <div className="tier-price">{tier.price}</div>
                     </div>
-                    <ul className="space-y-1">
+                    <ul className="tier-features">
                       {tier.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-xs text-gray-600">
-                          <CheckCircle className="w-3 h-3 text-green-500 mr-2 flex-shrink-0" />
+                        <li key={featureIndex}>
                           {feature}
                         </li>
                       ))}
@@ -203,7 +223,15 @@ const ModernServices = () => {
               </div>
               
               {/* CTA */}
-              <button className="modern-button modern-button-secondary w-full mt-6">
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="modern-button modern-button-secondary w-full mt-6"
+              >
                 Get Quote
                 <ArrowRight className="ml-2 w-4 h-4" />
               </button>
@@ -214,8 +242,8 @@ const ModernServices = () => {
         {/* Bottom CTA */}
         <div className="text-center mt-16 fade-in">
           <div className="modern-card max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Transform Your Business?</h3>
-            <p className="text-gray-600 mb-6">
+            <h3 className="text-2xl font-bold text-white mb-4">Ready to Transform Your Business?</h3>
+            <p className="text-gray-300 mb-6">
               Let's discuss your project and create something amazing together.
             </p>
             <button

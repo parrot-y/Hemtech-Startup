@@ -1,8 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ExternalLink, ArrowRight, Filter } from 'lucide-react';
 
 const CleanPortfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+
+  useEffect(() => {
+    // Intersection Observer for lazy loading animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          
+          // Lazy load images
+          const img = entry.target.querySelector('.lazy-image');
+          if (img && !img.classList.contains('loaded')) {
+            img.classList.add('loaded');
+          }
+        }
+      });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.fade-in, .scale-in');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   const projects = [
     {
@@ -62,7 +89,7 @@ const CleanPortfolio = () => {
     : projects.filter(project => project.category === selectedCategory);
 
   return (
-    <section id="portfolio" className="modern-section bg-gray-50">
+    <section id="portfolio" className="modern-section">
       {/* Background Elements */}
       <div className="animated-bg">
         <div className="floating-shape"></div>
@@ -72,12 +99,12 @@ const CleanPortfolio = () => {
       <div className="modern-container relative z-10">
         {/* Header */}
         <div className="text-center mb-16 fade-in">
-          <div className="inline-flex items-center gap-2 bg-green-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-yellow-600/10 text-yellow-400 border border-yellow-600/30 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Filter className="w-4 h-4" />
             Our Portfolio
           </div>
           
-          <h2 className="section-title text-gray-900 mb-6">
+          <h2 className="section-title mb-6 text-white">
             Featured <span className="gradient-text">Projects</span>
           </h2>
           
@@ -112,7 +139,8 @@ const CleanPortfolio = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-64 object-cover transition-transform duration-700 hover:scale-110"
+                  className="lazy-image w-full h-64 object-cover transition-transform duration-700 hover:scale-110"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                 
@@ -131,16 +159,16 @@ const CleanPortfolio = () => {
               {/* Content */}
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">
+                  <span className="text-sm font-medium text-yellow-400 bg-yellow-600/10 border border-yellow-600/30 px-3 py-1 rounded-full">
                     {project.category}
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-green-500 transition-colors duration-200">
+                <h3 className="text-xl font-bold text-white mb-3 hover:text-yellow-400 transition-colors duration-200">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-gray-300 text-sm leading-relaxed mb-4">
                   {project.description}
                 </p>
                 
@@ -149,7 +177,7 @@ const CleanPortfolio = () => {
                   {project.technologies.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="text-xs font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded"
+                      className="text-xs font-medium text-gray-300 bg-gray-700/50 px-2 py-1 rounded"
                     >
                       {tech}
                     </span>
@@ -159,7 +187,7 @@ const CleanPortfolio = () => {
                 {/* Link */}
                 <button
                   onClick={() => window.open(project.link, '_blank')}
-                  className="flex items-center text-green-500 hover:text-green-600 font-semibold text-sm transition-colors duration-200"
+                  className="flex items-center text-yellow-400 hover:text-yellow-300 font-semibold text-sm transition-colors duration-200"
                 >
                   View Project
                   <ArrowRight className="w-4 h-4 ml-1" />
