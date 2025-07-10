@@ -1,7 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Target, Users, Award, Zap, CheckCircle } from 'lucide-react';
 
 const CleanAbout = () => {
+  const [counters, setCounters] = useState({
+    projects: 0,
+    clients: 0,
+    years: 0,
+    satisfaction: 0
+  });
+
   useEffect(() => {
     // Intersection Observer for lazy loading animations
     const observerOptions = {
@@ -13,15 +20,52 @@ const CleanAbout = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
+          
+          // Start counting animation when stats section comes into view
+          if (entry.target.classList.contains('stats-section')) {
+            startCounting();
+          }
         }
       });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+    const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .stats-section');
     animatedElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
+
+  const startCounting = () => {
+    const targets = {
+      projects: 50,
+      clients: 30,
+      years: 3,
+      satisfaction: 100
+    };
+
+    const duration = 2000; // 2 seconds
+    const steps = 60; // 60 steps for smooth animation
+    const stepDuration = duration / steps;
+
+    let currentStep = 0;
+
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      
+      setCounters({
+        projects: Math.floor(targets.projects * progress),
+        clients: Math.floor(targets.clients * progress),
+        years: Math.floor(targets.years * progress),
+        satisfaction: Math.floor(targets.satisfaction * progress)
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setCounters(targets); // Ensure final values are exact
+      }
+    }, stepDuration);
+  };
 
   const features = [
     {
@@ -44,13 +88,6 @@ const CleanAbout = () => {
       title: 'Rapid Delivery',
       description: 'Lightning-fast turnaround times without compromising on quality or functionality.'
     }
-  ];
-
-  const stats = [
-    { number: '50+', label: 'Projects Completed' },
-    { number: '30+', label: 'Happy Clients' },
-    { number: '3+', label: 'Years Experience' },
-    { number: '100%', label: 'Success Rate' }
   ];
 
   return (
@@ -106,19 +143,20 @@ const CleanAbout = () => {
             </div>
           </div>
 
-          {/* Right side - Image and Stats */}
+          {/* Right side - Images and Stats */}
           <div className="slide-in-right relative">
-            <div className="relative">
+            {/* Main Team Image */}
+            <div className="relative mb-8">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
-                alt="HemTech Team"
-                className="lazy-image w-full h-96 object-cover rounded-2xl shadow-xl"
+                alt="HemTech Professional Team"
+                className="lazy-image w-full h-80 object-cover rounded-2xl shadow-xl"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent rounded-2xl"></div>
               
               {/* Floating stats card */}
-              <div className="absolute -bottom-8 -left-8 modern-card shadow-xl">
+              <div className="absolute -bottom-6 -left-6 modern-card shadow-xl bg-white/10 backdrop-blur-lg">
                 <div className="flex items-center gap-3 mb-3">
                   <CheckCircle className="w-6 h-6 text-yellow-400" />
                   <span className="font-semibold text-white">Trusted by 30+ Clients</span>
@@ -136,14 +174,40 @@ const CleanAbout = () => {
               </div>
             </div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-bold gradient-text mb-2">{stat.number}</div>
-                  <div className="text-sm text-gray-300 font-medium">{stat.label}</div>
-                </div>
-              ))}
+            {/* Secondary Images Grid */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              <img
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=300&h=200&fit=crop"
+                alt="Modern Office Workspace"
+                className="lazy-image w-full h-32 object-cover rounded-xl shadow-lg"
+                loading="lazy"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop"
+                alt="Digital Innovation"
+                className="lazy-image w-full h-32 object-cover rounded-xl shadow-lg"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Animated Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 stats-section">
+              <div className="text-center">
+                <div className="text-3xl font-bold gradient-text mb-2">{counters.projects}+</div>
+                <div className="text-sm text-gray-300 font-medium">Projects Completed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold gradient-text mb-2">{counters.clients}+</div>
+                <div className="text-sm text-gray-300 font-medium">Happy Clients</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold gradient-text mb-2">{counters.years}+</div>
+                <div className="text-sm text-gray-300 font-medium">Years Experience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold gradient-text mb-2">{counters.satisfaction}%</div>
+                <div className="text-sm text-gray-300 font-medium">Success Rate</div>
+              </div>
             </div>
           </div>
         </div>
