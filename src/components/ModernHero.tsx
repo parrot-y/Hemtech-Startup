@@ -54,8 +54,8 @@ const ModernHero = () => {
         {/* Fallback Image for Mobile */}
         <div className="hero-fallback-image">
           <img 
-            src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop" 
-            alt="Tech Background"
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop" 
+            alt="Digital Technology Background"
             className="w-full h-full object-cover"
           />
         </div>
@@ -67,7 +67,7 @@ const ModernHero = () => {
       {/* Animated Tech Elements */}
       <div className="hero-tech-elements">
         <div className="floating-particles">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(15)].map((_, i) => (
             <div key={i} className="particle" style={{
               left: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
@@ -90,7 +90,7 @@ const ModernHero = () => {
         <div className="hero-container">
           <div className="text-center">
             {/* Main Motto */}
-            <div className="mb-12 fade-in">
+            <div className="mb-8 md:mb-12 fade-in">
               <h1 className="hero-main-title">
                 Build. Manage. Grow.
               </h1>

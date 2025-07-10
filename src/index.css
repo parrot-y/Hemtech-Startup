@@ -463,28 +463,51 @@ p {
 /* Mobile Optimizations */
 @media (max-width: 640px) {
   .hero-main-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
   }
   
   .hero-main-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .hero-content {
+    padding: 0 0.5rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-cta-container {
     margin-bottom: 2rem;
+    gap: 1rem;
   }
   
   .hero-btn {
     padding: 0.875rem 1.5rem;
     font-size: 1rem;
-    min-width: 180px;
+    min-width: 200px;
+    width: 100%;
+    max-width: 280px;
   }
   
   .hero-stats {
     grid-template-columns: 1fr;
     gap: 1rem;
-    max-width: 300px;
+    max-width: 320px;
+    margin-top: 2rem;
   }
   
   .stat-number {
     font-size: 2rem;
+  }
+  
+  .stat-item {
+    padding: 1.5rem 1rem;
   }
   
   .particle {
@@ -495,6 +518,34 @@ p {
   .shape-1, .shape-2, .shape-3 {
     width: 250px;
     height: 250px;
+  }
+  
+  .scroll-indicator {
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-main-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-main-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .hero-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    min-width: 180px;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
   }
 }
 
@@ -1114,11 +1165,13 @@ p {
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
   }
   
   .section-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
   }
   
   .modern-button {
@@ -1133,6 +1186,36 @@ p {
   .chatbot-window {
     width: 18rem;
     height: 20rem;
+  }
+  
+  /* Contact Section Mobile Improvements */
+  #contact .modern-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  #contact .modern-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  #contact h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  #contact .text-xl {
+    font-size: 1.1rem;
+  }
+  
+  /* Form improvements */
+  .modern-input,
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 1rem;
   }
 }
 
