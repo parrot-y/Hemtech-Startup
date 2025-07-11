@@ -34,7 +34,7 @@ const ModernNavbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-content">
         <div className="navbar-brand">
-          Hemtech<span style={{ color: 'var(--electric-blue)' }}>.</span>
+          Hemtech<span style={{ color: 'var(--gold)' }}>.</span>
         </div>
         
         {/* Desktop Navigation */}
@@ -56,7 +56,7 @@ const ModernNavbar = () => {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white p-2 hover:text-gold transition-colors"
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
         >
@@ -66,7 +66,7 @@ const ModernNavbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-primary-dark border-t border-electric-blue/20">
+        <div className="md:hidden bg-royal-blue/95 backdrop-blur-sm border-t border-gold/20">
           <ul className="flex flex-col p-4 space-y-2">
             {navItems.map((item) => (
               <li key={item.id}>
@@ -76,7 +76,7 @@ const ModernNavbar = () => {
                     e.preventDefault();
                     scrollToSection(item.id);
                   }}
-                  className="block py-2 px-4 text-white hover:text-electric-blue transition-colors rounded"
+                  className="block py-3 px-4 text-white hover:text-gold hover:bg-white/5 transition-all rounded-lg"
                 >
                   {item.name}
                 </a>

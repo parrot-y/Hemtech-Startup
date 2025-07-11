@@ -20,52 +20,48 @@ const CleanFooter = () => {
     { name: 'About', id: 'about' },
     { name: 'Services', id: 'services' },
     { name: 'Portfolio', id: 'portfolio' },
-    { name: 'Testimonials', id: 'testimonials' },
     { name: 'Contact', id: 'contact' },
   ];
 
   const services = [
     'Web Development',
     'Digital Branding',
-    'SEO & Marketing',
-    'Mobile Solutions',
-    'UI/UX Design'
+    'Booking Systems',
+    'Mobile Solutions'
   ];
 
   return (
-    <footer className="section section-dark">
+    <footer className="section section-royal">
       <div className="container py-16">
         {/* Header Section */}
         <div className="text-center mb-12 fade-in">
           <h3 className="text-4xl font-bold text-white mb-4">
-            Hemtech<span style={{ color: 'var(--electric-blue)' }}>.</span>
+            Hemtech<span style={{ color: 'var(--gold)' }}>.</span>
           </h3>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Kenya's premier digital agency crafting cutting-edge solutions for modern businesses.
+            Digital solutions that drive real results.
           </p>
         </div>
 
         <div className="grid grid-4 mb-12">
           {/* Company Info */}
           <div className="space-y-6 fade-in">
-            <h4 className="text-xl font-bold text-white">About Hemtech</h4>
+            <h4 className="text-xl font-bold text-white">About</h4>
             <p className="text-gray-300 leading-relaxed">
-              We specialize in creating exceptional digital experiences that drive business growth 
-              and success in the modern digital landscape.
+              We create exceptional digital experiences that transform businesses and drive growth.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-6 fade-in">
-            <h4 className="text-xl font-bold text-white">Quick Links</h4>
+            <h4 className="text-xl font-bold text-white">Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-gray-300 hover:text-electric-blue transition-colors duration-200 font-medium flex items-center group"
+                    className="text-gray-300 hover:text-gold transition-colors duration-200 font-medium"
                   >
-                    <span className="w-1.5 h-1.5 bg-electric-blue rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
                     {link.name}
                   </button>
                 </li>
@@ -75,14 +71,11 @@ const CleanFooter = () => {
 
           {/* Services */}
           <div className="space-y-6 fade-in">
-            <h4 className="text-xl font-bold text-white">Our Services</h4>
+            <h4 className="text-xl font-bold text-white">Services</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
-                <li key={index} className="flex items-center">
-                  <div className="w-1.5 h-1.5 bg-neon-green rounded-full mr-3"></div>
-                  <span className="text-gray-300 text-sm">
-                    {service}
-                  </span>
+                <li key={index} className="text-gray-300 text-sm">
+                  {service}
                 </li>
               ))}
             </ul>
@@ -90,22 +83,21 @@ const CleanFooter = () => {
 
           {/* Contact Info */}
           <div className="space-y-6 fade-in">
-            <h4 className="text-xl font-bold text-white">Contact Us</h4>
+            <h4 className="text-xl font-bold text-white">Contact</h4>
             <div className="space-y-4">
               <div className="flex items-center">
-                <Phone className="w-5 h-5 text-electric-blue mr-3 flex-shrink-0" />
+                <Phone className="w-5 h-5 text-gold mr-3 flex-shrink-0" />
                 <div className="text-gray-300">
                   <div className="text-sm">+254 742 321 521</div>
-                  <div className="text-sm">+254 713 707 483</div>
                 </div>
               </div>
               <div className="flex items-center">
-                <Mail className="w-5 h-5 text-electric-blue mr-3 flex-shrink-0" />
+                <Mail className="w-5 h-5 text-gold mr-3 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">hemtech101@gmail.com</span>
               </div>
               <div className="flex items-center">
-                <MapPin className="w-5 h-5 text-electric-blue mr-3 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">Nairobi, Kenya 🇰🇪</span>
+                <MapPin className="w-5 h-5 text-gold mr-3 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">Nairobi, Kenya</span>
               </div>
             </div>
             
@@ -114,30 +106,24 @@ const CleanFooter = () => {
                 href="https://wa.me/254742321521"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary"
+                className="btn-primary text-sm px-6 py-3"
               >
-                💬 WhatsApp Now
+                WhatsApp
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-600 pt-8 fade-in">
+        <div className="border-t border-white/10 pt-8 fade-in">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-gray-400 flex items-center">
-              © {currentYear} Hemtech. All rights reserved. Crafted with 💙 in Kenya.
+            <div className="text-gray-400 text-sm">
+              © {currentYear} Hemtech. All rights reserved.
             </div>
             <div className="flex items-center space-x-6">
-              <a href="#" className="text-gray-400 hover:text-electric-blue transition-colors duration-200 text-sm">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-electric-blue transition-colors duration-200 text-sm">
-                Terms of Service
-              </a>
               <button
                 onClick={scrollToTop}
-                className="btn-secondary p-2"
+                className="w-10 h-10 bg-gold/20 hover:bg-gold text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
               >
                 <ArrowUp className="w-5 h-5" />
               </button>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Monitor, Hotel, Palette, Share2, Smartphone, Bot, ArrowRight, CheckCircle } from 'lucide-react';
+import { Monitor, Hotel, Palette, Share2, Smartphone, Bot, ArrowRight } from 'lucide-react';
 
 const ModernServices = () => {
   useEffect(() => {
@@ -32,223 +32,144 @@ const ModernServices = () => {
     {
       icon: Monitor,
       title: 'Web Development',
-      description: 'Custom websites built with cutting-edge technologies for optimal performance.',
+      description: 'Custom websites that convert visitors into customers.',
       tiers: [
         { 
-          name: 'Basic', 
+          name: 'Essential', 
           price: 'KES 25k', 
-          features: ['Responsive Design', 'Basic SEO', 'Contact Forms', '5 Pages', 'Mobile Optimized'] 
+          features: ['Responsive Design', 'SEO Ready', 'Contact Forms', '5 Pages'] 
         },
         { 
-          name: 'Standard', 
+          name: 'Professional', 
           price: 'KES 50k', 
-          features: ['CMS Integration', 'Advanced SEO', 'Analytics', '10 Pages', 'Blog Setup'] 
+          features: ['CMS Integration', 'Analytics', 'Blog Setup', '10 Pages'] 
         },
         { 
-          name: 'Premium', 
+          name: 'Enterprise', 
           price: 'KES 90k+', 
-          features: ['E-commerce', 'Chatbot', 'Custom Features', 'Unlimited Pages', 'Priority Support'] 
+          features: ['E-commerce', 'Custom Features', 'Unlimited Pages', 'Priority Support'] 
         }
       ]
     },
     {
       icon: Hotel,
-      title: 'Hotel Booking Systems',
-      description: 'Complete booking systems with payment integration and management tools.',
+      title: 'Booking Systems',
+      description: 'Complete booking solutions with payment integration.',
       tiers: [
         { 
           name: 'Starter', 
           price: 'KES 15k', 
-          features: ['Basic Booking', 'Calendar', 'Email Alerts', 'Room Management', 'Reports'] 
+          features: ['Basic Booking', 'Calendar', 'Email Alerts', 'Reports'] 
         },
         { 
           name: 'Business', 
           price: 'KES 35k', 
-          features: ['Payment Gateway', 'Multi-property', 'Advanced Reports', 'Customer Portal', 'SMS Alerts'] 
+          features: ['Payment Gateway', 'Multi-property', 'Customer Portal', 'SMS'] 
         },
         { 
           name: 'Premium', 
           price: 'KES 65k', 
-          features: ['API Integration', 'Mobile App', 'Analytics', 'Channel Manager', 'Custom Features'] 
+          features: ['API Integration', 'Mobile App', 'Analytics', 'Channel Manager'] 
         }
       ]
     },
     {
       icon: Palette,
       title: 'Digital Branding',
-      description: 'Complete brand identity solutions that make your business stand out.',
+      description: 'Brand identity that makes you unforgettable.',
       tiers: [
         { 
           name: 'Essential', 
           price: 'KES 10k', 
-          features: ['Logo Design', 'Brand Colors', 'Style Guide', 'Business Cards', 'Letterhead'] 
+          features: ['Logo Design', 'Brand Colors', 'Style Guide', 'Business Cards'] 
         },
         { 
           name: 'Professional', 
           price: 'KES 25k', 
-          features: ['Brand Kit', 'Templates', 'Guidelines', 'Social Media Kit', 'Brand Strategy'] 
+          features: ['Brand Kit', 'Templates', 'Social Media Kit', 'Strategy'] 
         },
         { 
           name: 'Premium', 
           price: 'KES 45k', 
-          features: ['Animated Brand', 'Video Assets', 'Full Suite', 'Brand Consultation', 'Implementation'] 
-        }
-      ]
-    },
-    {
-      icon: Share2,
-      title: 'Social Media Management',
-      description: 'Strategic social media campaigns that drive engagement and growth.',
-      tiers: [
-        { 
-          name: 'Basic', 
-          price: 'KES 8k/mo', 
-          features: ['Content Creation', '3 Platforms', 'Scheduling', '10 Posts/month', 'Basic Analytics'] 
-        },
-        { 
-          name: 'Growth', 
-          price: 'KES 15k/mo', 
-          features: ['5 Platforms', 'Engagement', '20 Posts/month', 'Stories & Reels', 'Monthly Reports'] 
-        },
-        { 
-          name: 'Premium', 
-          price: 'KES 25k/mo', 
-          features: ['Paid Ads', 'Strategy', 'Full Management', 'Unlimited Posts', 'Dedicated Manager'] 
-        }
-      ]
-    },
-    {
-      icon: Smartphone,
-      title: 'App Development',
-      description: 'Native and cross-platform mobile applications for iOS and Android.',
-      tiers: [
-        { 
-          name: 'Simple', 
-          price: 'KES 60k', 
-          features: ['Basic App', 'iOS/Android', 'Core Features', 'Basic UI', 'App Store Upload'] 
-        },
-        { 
-          name: 'Advanced', 
-          price: 'KES 120k', 
-          features: ['Complex Logic', 'API Integration', 'Push Notifications', 'Advanced UI', 'Analytics'] 
-        },
-        { 
-          name: 'Enterprise', 
-          price: 'KES 200k+', 
-          features: ['Custom Backend', 'Advanced Security', 'Scalability', 'Admin Panel', 'Maintenance'] 
-        }
-      ]
-    },
-    {
-      icon: Bot,
-      title: 'AI Integration',
-      description: 'Intelligent automation and AI-powered solutions for modern businesses.',
-      tiers: [
-        { 
-          name: 'Starter', 
-          price: 'KES 35k', 
-          features: ['Basic Chatbot', 'FAQ Automation', 'Simple AI', 'Email Integration', 'Basic Training'] 
-        },
-        { 
-          name: 'Professional', 
-          price: 'KES 70k', 
-          features: ['Advanced AI', 'Data Analysis', 'Automation', 'CRM Integration', 'Custom Training'] 
-        },
-        { 
-          name: 'Enterprise', 
-          price: 'KES 150k+', 
-          features: ['AI Suite', 'Machine Learning', 'Custom Models', 'API Access', 'Ongoing Support'] 
+          features: ['Animated Brand', 'Video Assets', 'Full Suite', 'Consultation'] 
         }
       ]
     }
   ];
 
   return (
-    <section id="services" className="section section-light">
+    <section id="services" className="section section-white">
       <div className="container">
-        {/* Header */}
+        {/* Minimal Header */}
         <div className="text-center mb-16 fade-in">
-          <div className="inline-flex items-center gap-2 bg-neon-green/10 text-neon-green border border-neon-green/30 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <CheckCircle className="w-4 h-4" />
-            Our Services
-          </div>
-          
-          <h2 className="section-title text-dark-blue mb-6">
-            Digital Solutions That{' '}
-            <span style={{ color: 'var(--neon-green)' }}>Drive Results</span>
+          <h2 className="section-title text-royal-blue">
+            Services That <span className="text-gold">Deliver</span>
           </h2>
-          
-          <p className="section-subtitle text-gray-600">
-            From stunning websites to AI-powered solutions, we deliver premium services 
-            tailored to accelerate your business growth.
+          <p className="section-subtitle">
+            Three core services. Unlimited possibilities.
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Services Grid - Space Efficient */}
         <div className="grid grid-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="card scale-in"
+              className="scale-in will-change-transform"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Service Header */}
-              <div className="mb-6">
-                <div className="card-icon">
-                  <service.icon className="w-6 h-6 text-white" />
+              <div className="text-center mb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-gold to-royal-blue rounded-full flex items-center justify-center mx-auto mb-6 transition-transform hover:scale-110 hover:rotate-6">
+                  <service.icon className="w-10 h-10 text-white" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-dark-blue mb-3">{service.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">{service.description}</p>
+                <h3 className="text-2xl font-bold text-royal-blue mb-3">{service.title}</h3>
+                <p className="text-text-light leading-relaxed mb-8">{service.description}</p>
               </div>
               
-              {/* Pricing Tiers */}
+              {/* Pricing Tiers - Sleek Cards */}
               <div className="space-y-4">
                 {service.tiers.map((tier, tierIndex) => (
-                  <div key={tierIndex} className="border border-gray-200 rounded-lg p-4 hover:border-neon-green transition-colors">
-                    <div className="flex justify-between items-center mb-3">
-                      <div className="font-semibold text-neon-green">{tier.name}</div>
-                      <div className="font-bold text-dark-blue">{tier.price}</div>
+                  <div key={tierIndex} className="pricing-card">
+                    <div className="flex justify-between items-center mb-4">
+                      <div className="pricing-tier">{tier.name}</div>
+                      <div className="pricing-price text-lg font-bold">{tier.price}</div>
                     </div>
-                    <ul className="space-y-1">
+                    <ul className="space-y-2 mb-6">
                       {tier.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="text-sm text-gray-600 flex items-center">
-                          <CheckCircle className="w-3 h-3 text-neon-green mr-2 flex-shrink-0" />
+                        <li key={featureIndex} className="text-sm text-text-light flex items-center">
+                          <div className="w-2 h-2 bg-gold rounded-full mr-3 flex-shrink-0"></div>
                           {feature}
                         </li>
                       ))}
                     </ul>
+                    
+                    {tierIndex === 1 && (
+                      <button 
+                        onClick={scrollToContact}
+                        className="btn-primary w-full group"
+                      >
+                        Get Quote
+                        <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </button>
+                    )}
                   </div>
                 ))}
               </div>
-              
-              {/* CTA */}
-              <button 
-                onClick={scrollToContact}
-                className="btn-neon w-full mt-6 group"
-              >
-                Get Quote
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </button>
             </div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16 fade-in">
-          <div className="card max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-dark-blue mb-4">Ready to Transform Your Business?</h3>
-            <p className="text-gray-600 mb-6">
-              Let's discuss your project and create something amazing together.
-            </p>
-            <button
-              onClick={scrollToContact}
-              className="btn-primary group"
-            >
-              Start Your Project
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </button>
-          </div>
+        {/* Bottom CTA - Minimal */}
+        <div className="text-center mt-20 fade-in">
+          <button
+            onClick={scrollToContact}
+            className="btn-primary group text-lg px-8 py-4"
+          >
+            Start Your Project
+            <ArrowRight className="ml-3 w-6 h-6 transition-transform group-hover:translate-x-1" />
+          </button>
         </div>
       </div>
     </section>
