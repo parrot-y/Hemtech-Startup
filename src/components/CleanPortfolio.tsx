@@ -15,12 +15,6 @@ const CleanPortfolio = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
-          
-          // Lazy load images
-          const img = entry.target.querySelector('.lazy-image');
-          if (img && !img.classList.contains('loaded')) {
-            img.classList.add('loaded');
-          }
         }
       });
     }, observerOptions);
@@ -89,26 +83,20 @@ const CleanPortfolio = () => {
     : projects.filter(project => project.category === selectedCategory);
 
   return (
-    <section id="portfolio" className="modern-section">
-      {/* Background Elements */}
-      <div className="animated-bg">
-        <div className="floating-shape"></div>
-        <div className="floating-shape"></div>
-      </div>
-      
-      <div className="modern-container relative z-10">
+    <section id="portfolio" className="section section-white">
+      <div className="container">
         {/* Header */}
         <div className="text-center mb-16 fade-in">
-          <div className="inline-flex items-center gap-2 bg-yellow-600/10 text-yellow-400 border border-yellow-600/30 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-electric-blue/10 text-electric-blue border border-electric-blue/30 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Filter className="w-4 h-4" />
             Our Portfolio
           </div>
           
-          <h2 className="section-title mb-6 text-white">
-            Featured <span className="gradient-text">Projects</span>
+          <h2 className="section-title text-dark-blue mb-6">
+            Featured <span style={{ color: 'var(--electric-blue)' }}>Projects</span>
           </h2>
           
-          <p className="section-subtitle mb-8">
+          <p className="section-subtitle text-gray-600 mb-8">
             Explore our latest work and see how we've helped businesses transform their digital presence.
           </p>
 
@@ -118,10 +106,10 @@ const CleanPortfolio = () => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`modern-button ${
+                className={`px-4 py-2 rounded-full font-medium transition-all ${
                   selectedCategory === category
-                    ? 'modern-button-primary'
-                    : 'modern-button-secondary'
+                    ? 'bg-electric-blue text-white shadow-lg'
+                    : 'bg-gray-100 text-gray-600 hover:bg-electric-blue hover:text-white'
                 }`}
               >
                 {category}
@@ -131,24 +119,33 @@ const CleanPortfolio = () => {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="modern-grid modern-grid-3">
+        <div className="grid grid-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <div key={index} className="modern-card scale-hover fade-in">
-              {/* Image */}
-              <div className="relative overflow-hidden rounded-xl mb-6">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="lazy-image w-full h-64 object-cover transition-transform duration-700 hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <div key={index} className="portfolio-item fade-in">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="portfolio-image"
+                loading="lazy"
+              />
+              
+              <div className="portfolio-overlay">
+                <div className="portfolio-content">
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="bg-white/20 px-2 py-1 rounded text-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                   <button
-                    className="modern-button modern-button-primary"
                     onClick={() => window.open(project.link, '_blank')}
+                    className="btn-secondary bg-white text-electric-blue border-white hover:bg-electric-blue hover:text-white"
                   >
                     <ExternalLink className="mr-2 w-4 h-4" />
                     View Project
@@ -156,38 +153,25 @@ const CleanPortfolio = () => {
                 </div>
               </div>
               
-              {/* Content */}
-              <div>
+              {/* Project Info */}
+              <div className="p-6 bg-white">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-medium text-yellow-400 bg-yellow-600/10 border border-yellow-600/30 px-3 py-1 rounded-full">
+                  <span className="text-sm font-medium text-neon-green bg-neon-green/10 px-3 py-1 rounded-full">
                     {project.category}
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-3 hover:text-yellow-400 transition-colors duration-200">
+                <h3 className="text-xl font-bold text-dark-blue mb-3">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   {project.description}
                 </p>
                 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs font-medium text-gray-300 bg-gray-700/50 px-2 py-1 rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                {/* Link */}
                 <button
                   onClick={() => window.open(project.link, '_blank')}
-                  className="flex items-center text-yellow-400 hover:text-yellow-300 font-semibold text-sm transition-colors duration-200"
+                  className="flex items-center text-electric-blue hover:text-neon-green font-semibold text-sm transition-colors"
                 >
                   View Project
                   <ArrowRight className="w-4 h-4 ml-1" />
@@ -206,10 +190,10 @@ const CleanPortfolio = () => {
                 element.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="modern-button modern-button-primary text-lg px-8 py-4"
+            className="btn-primary group"
           >
             Start Your Project
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
           </button>
         </div>
       </div>

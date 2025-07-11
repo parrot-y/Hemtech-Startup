@@ -71,12 +71,12 @@ const CleanAbout = () => {
     {
       icon: Target,
       title: 'Strategic Innovation',
-      description: 'Data-driven strategies powered by AI and cutting-edge technology for measurable business growth.'
+      description: 'Data-driven strategies powered by cutting-edge technology for measurable business growth.'
     },
     {
       icon: Users,
       title: 'Expert Team',
-      description: 'Skilled professionals with deep expertise in modern web technologies and AI integration.'
+      description: 'Skilled professionals with deep expertise in modern web technologies and digital solutions.'
     },
     {
       icon: Award,
@@ -91,36 +91,30 @@ const CleanAbout = () => {
   ];
 
   return (
-    <section id="about" className="modern-section">
-      {/* Background Elements */}
-      <div className="animated-bg">
-        <div className="floating-shape"></div>
-        <div className="floating-shape"></div>
-      </div>
-
-      <div className="modern-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="section section-soft">
+      <div className="container">
+        <div className="grid grid-2 items-center gap-8">
           
           {/* Left side - Content */}
           <div className="slide-in-left">
             <div className="mb-8">
-              <div className="inline-flex items-center gap-2 bg-yellow-600/10 text-yellow-400 border border-yellow-600/30 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 bg-neon-green/10 text-neon-green border border-neon-green/30 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <CheckCircle className="w-4 h-4" />
                 About HemTech
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              <h2 className="section-title text-dark-blue mb-6">
                 Crafting Digital{' '}
-                <span className="gradient-text">Excellence</span>
+                <span style={{ color: 'var(--neon-green)' }}>Excellence</span>
               </h2>
               
               <div className="space-y-6 text-lg leading-relaxed mb-8">
-                <p className="text-gray-300">
-                  HemTech is a Kenyan-born digital agency combining innovation, design & AI to help businesses grow smarter. 
+                <p className="text-gray-700">
+                  HemTech is a Kenyan-born digital agency combining innovation, design & technology to help businesses grow smarter. 
                   We transform ideas into powerful digital experiences that drive real results.
                 </p>
 
-                <p className="text-gray-300">
+                <p className="text-gray-700">
                   From concept to launch, we work closely with schools, businesses, and startups across Kenya 
                   to deliver cutting-edge solutions that exceed expectations and accelerate growth.
                 </p>
@@ -128,16 +122,18 @@ const CleanAbout = () => {
             </div>
 
             {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-2 gap-6">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="modern-card scale-hover"
+                  className="card"
                   style={{ animationDelay: `${0.6 + index * 0.1}s` }}
                 >
-                  <feature.icon className="w-8 h-8 text-yellow-400 mb-4" />
-                  <h3 className="font-bold text-white mb-2">{feature.title}</h3>
-                  <p className="text-sm text-gray-300">{feature.description}</p>
+                  <div className="card-icon">
+                    <feature.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-dark-blue mb-2">{feature.title}</h3>
+                  <p className="text-sm text-gray-600">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -150,25 +146,25 @@ const CleanAbout = () => {
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
                 alt="HemTech Professional Team"
-                className="lazy-image w-full h-80 object-cover rounded-2xl shadow-xl"
+                className="w-full h-80 object-cover rounded-xl shadow-lg"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 to-transparent rounded-xl"></div>
               
               {/* Floating stats card */}
-              <div className="absolute -bottom-6 -left-6 modern-card shadow-xl bg-white/10 backdrop-blur-lg">
+              <div className="absolute -bottom-6 -left-6 card shadow-xl bg-white">
                 <div className="flex items-center gap-3 mb-3">
-                  <CheckCircle className="w-6 h-6 text-yellow-400" />
-                  <span className="font-semibold text-white">Trusted by 30+ Clients</span>
+                  <CheckCircle className="w-6 h-6 text-neon-green" />
+                  <span className="font-semibold text-dark-blue">Trusted by 30+ Clients</span>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <div className="text-2xl font-bold gradient-text">100%</div>
-                    <div className="text-xs text-gray-300">Satisfaction</div>
+                    <div className="text-2xl font-bold text-neon-green">100%</div>
+                    <div className="text-xs text-gray-600">Satisfaction</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold gradient-text">24/7</div>
-                    <div className="text-xs text-gray-300">Support</div>
+                    <div className="text-2xl font-bold text-neon-green">24/7</div>
+                    <div className="text-xs text-gray-600">Support</div>
                   </div>
                 </div>
               </div>
@@ -179,13 +175,13 @@ const CleanAbout = () => {
               <img
                 src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=300&h=200&fit=crop"
                 alt="Modern Office Workspace"
-                className="lazy-image w-full h-32 object-cover rounded-xl shadow-lg"
+                className="w-full h-32 object-cover rounded-xl shadow-lg"
                 loading="lazy"
               />
               <img
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop"
                 alt="Digital Innovation"
-                className="lazy-image w-full h-32 object-cover rounded-xl shadow-lg"
+                className="w-full h-32 object-cover rounded-xl shadow-lg"
                 loading="lazy"
               />
             </div>
@@ -193,20 +189,20 @@ const CleanAbout = () => {
             {/* Animated Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 stats-section">
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text mb-2">{counters.projects}+</div>
-                <div className="text-sm text-gray-300 font-medium">Projects Completed</div>
+                <div className="text-3xl font-bold text-neon-green mb-2">{counters.projects}+</div>
+                <div className="text-sm text-gray-600 font-medium">Projects Completed</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text mb-2">{counters.clients}+</div>
-                <div className="text-sm text-gray-300 font-medium">Happy Clients</div>
+                <div className="text-3xl font-bold text-neon-green mb-2">{counters.clients}+</div>
+                <div className="text-sm text-gray-600 font-medium">Happy Clients</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text mb-2">{counters.years}+</div>
-                <div className="text-sm text-gray-300 font-medium">Years Experience</div>
+                <div className="text-3xl font-bold text-neon-green mb-2">{counters.years}+</div>
+                <div className="text-sm text-gray-600 font-medium">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text mb-2">{counters.satisfaction}%</div>
-                <div className="text-sm text-gray-300 font-medium">Success Rate</div>
+                <div className="text-3xl font-bold text-neon-green mb-2">{counters.satisfaction}%</div>
+                <div className="text-sm text-gray-600 font-medium">Success Rate</div>
               </div>
             </div>
           </div>
